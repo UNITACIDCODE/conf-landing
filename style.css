@@ -112,3 +112,116 @@ body{
   :root{ --hero-height: 360px; --cta-top: 72%; --cta-right: 50%; }
   .cta{ transform:translate(50%, -50%); }
 }
+
+/* ===== FIGMA TWEAKS (override) ===== */
+
+/* 0) Базовые токены под фигму */
+:root{
+    --ink:#0d0f14;
+    --muted:#7d8495;
+    --ring:#e6eaf2;
+    --paper:#ffffff;
+  
+    --radius:20px;
+    --radius-lg:22px;
+  
+    /* тени как в макете: мягкие, двухуровневые */
+    --shadow-card: 0 4px 12px rgba(0,0,0,.04), 0 12px 28px rgba(0,0,0,.06);
+    --shadow-cta: 0 14px 28px rgba(15,18,26,.28), 0 2px 4px rgba(15,18,26,.18);
+  
+    /* позиция CTA ниже (десктоп), поправим и брейкпоинты ниже */
+    --cta-top: 58%;
+  }
+  
+  /* 1) Заголовки крупнее, плотнее */
+  .h2{
+    font-size: clamp(36px,5vw,56px);
+    line-height: 1.12;
+    font-weight: 900;
+    letter-spacing: -0.2px;
+    margin-bottom: 28px;
+  }
+  
+  /* 2) Карточки (what / audience / faq) — белые, с мягкой тенью */
+  .card,
+  .aud-item,
+  .faq-item{
+    background: var(--paper);
+    border: 1px solid var(--ring);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-card);
+  }
+  
+  /* 3) Тексты: серый вторичный ближе к макету */
+  .subtitle,
+  .card p,
+  .aud-text span,
+  .faq-body{
+    color: var(--muted);
+  }
+  
+  /* 4) Кнопки — глубокий тёмный градиент и «висячая» тень */
+  .btn.primary{
+    background: linear-gradient(180deg,#1f2430,#0f121a);
+    color:#fff;
+    border:none;
+    box-shadow: var(--shadow-cta);
+  }
+  .btn{
+    transition: transform .18s ease, box-shadow .18s ease, filter .18s ease;
+  }
+  .btn:hover{ transform: translateY(-1px); filter: brightness(1.02); }
+  
+  /* 5) HERO — CTA ниже и чуть массивнее */
+  .cta{
+    top: var(--cta-top);
+    height: 52px;
+    padding: 0 24px;
+    border-radius: 999px;
+    background: linear-gradient(180deg,#1f2430,#0f121a);
+    color:#fff;
+    font-weight: 900;
+    box-shadow: var(--shadow-cta);
+  }
+  
+  /* 6) WHAT: чуть больше воздуха между карточками */
+  .features{ gap: 22px; }
+  
+  /* 7) AUDIENCE — плашка и иконка справа, как в макете */
+  .aud-item{
+    padding: 18px 20px;
+    border-radius: 22px;
+  }
+  .aud-text strong{ font-weight: 900; }
+  .aud-icon{
+    width: 52px; height: 52px;
+    border-radius: 50%;
+    background: #f3f6fb;
+    border: 1px solid var(--ring);
+    font-weight: 900;
+    color: #5f6b7d;
+  }
+  
+  /* 8) PROGRAM — тёмный фон секции + стеклянная карточка */
+  .program{ background:#0d0f14; padding: 80px 0; }
+  .prog-card{
+    position: relative;
+    border-radius: 22px;
+    padding: 18px 18px 120px;
+    color:#e9edf5;
+    background: rgba(255,255,255,.06);
+    border: 1px solid rgba(255,255,255,.14);
+    box-shadow: inset 0 0 0 1px rgba(255,255,255,.04), 0 8px 28px rgba(0,0,0,.35);
+    backdrop-filter: blur(8px);
+  }
+  .prog-card p{ margin: 6px 6px 0; }
+  
+  /* 9) Респонсив поправки (CTA позиция) */
+  @media (max-width: 960px){
+    :root{ --cta-top: 70%; }
+  }
+  @media (max-width: 720px){
+    :root{ --cta-top: 78%; }
+    .cta{ transform: translate(50%,-50%); } /* уже есть в исходниках — оставляем */
+  }
+  
