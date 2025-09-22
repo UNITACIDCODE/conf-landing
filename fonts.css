@@ -1,0 +1,72 @@
+/* ==============================
+   YS Geo
+   ============================== */
+   @font-face {
+    font-family: "YS Geo";
+    src: url("fonts/YS Geo-Regular.ttf") format("truetype");
+    font-weight: 400;
+    font-style: normal;
+  }
+  
+  @font-face {
+    font-family: "YS Geo";
+    src: url("fonts/YS Geo-Medium.ttf") format("truetype");
+    font-weight: 500;
+    font-style: normal;
+  }
+  
+  @font-face {
+    font-family: "YS Geo";
+    src: url("fonts/YS Geo-Bold.ttf") format("truetype");
+    font-weight: 700;
+    font-style: normal;
+  }
+  
+  @font-face {
+    font-family: "YS Geo";
+    src: url("fonts/YS Geo-Heavy.ttf") format("truetype");
+    font-weight: 800;
+    font-style: normal;
+  }
+  
+  /* ==============================
+     YS Text
+     ============================== */
+  @font-face {
+    font-family: "YS Text";
+    src: url("fonts/YS Text-Light.ttf") format("truetype");
+    font-weight: 300;
+    font-style: normal;
+  }
+  
+  @font-face {
+    font-family: "YS Text";
+    src: url("fonts/YS Text-Regular.ttf") format("truetype");
+    font-weight: 400;
+    font-style: normal;
+  }
+  
+  @font-face {
+    font-family: "YS Text";
+    src: url("fonts/YS Text-Medium.ttf") format("truetype");
+    font-weight: 500;
+    font-style: normal;
+  }
+  
+  @font-face {
+    font-family: "YS Text";
+    src: url("fonts/YS Text-Heavy.ttf") format("truetype");
+    font-weight: 700;
+    font-style: normal;
+  }
+  
+  /* ==============================
+     YS Text Condensed
+     ============================== */
+  @font-face {
+    font-family: "YS Text Cond";
+    src: url("fonts/YS Text Cond-Light.ttf") format("truetype");
+    font-weight: 300;
+    font-style: normal;
+  }
+  

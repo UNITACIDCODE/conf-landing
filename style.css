@@ -590,13 +590,15 @@ body{
   /* === REGISTRATION — размеры как в макете === */
   #registration{ padding: 80px 0 96px; text-align:center; }
   
-  #registration .h2{
-    margin: 0 0 16px;
+  .registration h2 {
+    font-family: "YS Geo", sans-serif;
+    font-weight: 500; /* Medium */
     font-size: 64px;
-    line-height: 1.05;
-    font-weight: 900;
-    letter-spacing: -0.4px;
-  }
+    line-height: 100%;
+    letter-spacing: 0;
+    text-align: center;
+    color: #000; /* чёрный */
+  }  
   
   #registration .subtitle{
     margin: 0 0 28px;
@@ -627,5 +629,47 @@ body{
     #registration .h2{ font-size: 42px; }
     #registration .subtitle{ font-size: 22px; }
     #registration .btn{ width: 280px; }
+  }
+  /* === Глобальный фон страницы === */
+body {
+    background: linear-gradient(180deg, #EEF2F7 0%, #F6F8FB 100%);
+  }
+  
+  /* секции на прозрачном фоне */
+  .questions {
+    background: transparent;
+  }
+  .registration {
+    background: transparent;
+  }
+  
+  /* === Блок program с затемнением и плавными переходами === */
+  .program {
+    position: relative;
+    background: #0E111A;
+    padding: 72px 0;
+    z-index: 0;
+  }
+  
+  .program::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: -140px;
+    height: 140px;
+    background: linear-gradient(180deg, #EEF2F7 0%, rgba(14, 17, 26, 0) 100%);
+    pointer-events: none;
+  }
+  
+  .program::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -140px;
+    height: 140px;
+    background: linear-gradient(0deg, #EEF2F7 0%, rgba(14, 17, 26, 0) 100%);
+    pointer-events: none;
   }
   
