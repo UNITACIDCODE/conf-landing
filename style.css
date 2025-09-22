@@ -337,38 +337,34 @@ body{
     background-size: 12px;
   }
 
-  /* =========================================================
-   FIGMA MATCH PACK — вставь В КОНЕЦ твоего style.css
-   Блоки: Заголовки, "Что будет", "Программа", "Для кого"
-   Никаких шрифтов/иконок — добавим позже
-   =======================================================*/
+ /* ================= FIGMA OVERRIDES & SECTIONS (part 2) ================ */
 
-/* ==== 0) Базовые токены под визуал ==== */
+/* 0) Tokens override (аккуратный сдвиг под макет) */
 :root{
-    --page:#EEF2F7;          /* фон страницы */
-    --paper:#FFFFFF;         /* фон карточек */
-    --ink:#0E111A;           /* основной текст */
-    --muted:#8A93A6;         /* вторичный текст */
-    --ring:#E8EDF5;          /* бордер карточек */
+    --page:#EEF2F7;
+    --paper:#FFFFFF;
+    --ink:#0E111A;
+    --muted:#8A93A6;
+    --ring:#E8EDF5;
   
-    --radius:28px;           /* общий радиус */
-    --radius-lg:30px;        /* крупные плашки */
+    --radius:28px;
+    --radius-lg:30px;
   
     --shadow-card: 0 10px 20px rgba(23,27,41,.06), 0 30px 60px rgba(23,27,41,.08);
     --shadow-cta:  0 14px 28px rgba(15,18,26,.22), 0 4px 8px rgba(15,18,26,.12);
   }
   
-  /* ==== 1) Заголовки секций ==== */
+  /* 1) Заголовки секций — одна каноническая версия */
   .section .h2{
-    font-size: clamp(40px, 6.5vw, 64px); /* “Что будет”, “Для кого” */
+    font-size: clamp(48px, 7vw, 80px);
     line-height: 1.05;
     font-weight: 900;
-    letter-spacing: -0.4px;
+    letter-spacing: -0.6px;
     color: var(--ink);
-    margin: 0 0 32px;
+    margin: 0 0 28px;
   }
   
-  /* ==== 2) Блок “Что будет” (3 карточки) ==== */
+  /* 2) WHAT (3 карточки) — финальный вид */
   .features{
     display:grid;
     grid-template-columns: repeat(3,1fr);
@@ -396,7 +392,7 @@ body{
   }
   .card p{ margin:0; color:var(--muted); font-size:15.5px; line-height:1.55; }
   
-  /* Стрелка в кружке (SVG добавим позже в assets/arrow.svg) */
+  /* Стрелка-иконка в левом верхнем углу карточки */
   .card{ --arr-bg:#F4F6FB; --arr-ring:#E8EDF5; }
   .card::before{
     content:""; position:absolute; left:14px; top:12px; width:22px; height:22px; border-radius:50%;
@@ -408,7 +404,7 @@ body{
   /* Подпись под сеткой */
   .subtitle.center{ color:#8A93A6; font-weight:500; }
   
-  /* ==== 3) CTA-кнопки (универсально) ==== */
+  /* 3) CTA-кнопки — градиент и hover */
   .btn.primary{
     height:52px; padding:0 26px; border-radius:999px; font-weight:800;
     background: linear-gradient(180deg,#1f2430,#0f121a);
@@ -417,31 +413,14 @@ body{
   }
   .btn.primary:hover{ transform:translateY(-1px); filter:brightness(1.02); }
   
-  /* ==== 4) Секция “Программа” (тёмная + стекло) ==== */
-  .program{ background:#0D0F14; padding:80px 0; }
-  .prog-card{
-    position:relative;
-    border-radius:22px;
-    padding:20px 20px 120px;
-    color:#E9EDF5;
-    background: rgba(255,255,255,.06);                 /* Fill 10–20% */
-    border:1px solid rgba(255,255,255,.14);            /* Stroke 30% inside */
-    backdrop-filter: blur(30px); -webkit-backdrop-filter: blur(30px); /* Background blur */
-    box-shadow: inset 0 0 0 1px rgba(255,255,255,.04), /* Glass edge */
-                0 8px 28px rgba(0,0,0,.35);            /* Drop shadow */
-  }
-  .prog-card p{ margin:6px 6px 0; }
-  
-  /* ==== 5) Секция “Для кого конференция” ==== */
-  .audience{
-    list-style:none; padding:0; margin:18px 0 0; display:grid; gap:16px;
-  }
+  /* 4) AUDIENCE — как в макете */
+  .audience{ list-style:none; padding:0; margin:18px 0 0; display:grid; gap:16px; }
   .aud-item{
     display:flex; align-items:center; justify-content:space-between; gap:24px;
     padding:20px; border-radius: var(--radius-lg);
-    background: rgba(255,255,255,.60);                 /* Fill 60% */
+    background: rgba(255,255,255,.60);
     border:1px solid var(--ring);
-    box-shadow: 0 2px 6px rgba(17,20,26,.08);          /* мягкая тень */
+    box-shadow: 0 2px 6px rgba(17,20,26,.08);
   }
   .aud-text strong{ display:block; font-weight:900; color:var(--ink); font-size:20px; letter-spacing:-.2px; }
   .aud-text span{ display:block; color:var(--muted); font-size:15.5px; margin-top:6px; }
@@ -449,10 +428,111 @@ body{
     width:56px; height:56px; border-radius:50%;
     display:flex; align-items:center; justify-content:center;
     background:#F4F6FB; border:1px solid var(--ring);
-    /* сюда позже inline-svg/фон иконок */
   }
   
-  /* ==== 6) Респонсив ==== */
+  /* 5) FAQ */
+  .faq{ max-width:1280px; margin:48px auto 64px; display:grid; gap:8px; }
+  .faq-item{
+    position:relative; overflow:hidden;
+    border-radius:30px;
+    background: rgba(255,255,255,.20);
+    border:1px solid rgba(255,255,255,.30);
+    backdrop-filter: blur(30px); -webkit-backdrop-filter: blur(30px);
+    box-shadow: 0 8px 28px rgba(0,0,0,.12);
+  }
+  .faq-item > summary{
+    list-style:none; cursor:pointer; user-select:none;
+    padding:20px 72px 20px 24px;
+    font-weight:800; font-size:20px; line-height:1.3; color:#0E111A;
+  }
+  .faq-item > summary::-webkit-details-marker{ display:none; }
+  .faq-body{ padding:0 24px 20px 24px; color:#8A93A6; font-size:15.5px; line-height:1.55; }
+  .faq-item::after{
+    content:"+";
+    position:absolute; right:20px; top:18px;
+    width:38px; height:38px; border-radius:40px;
+    display:grid; place-items:center; font-weight:900; color:#0E111A;
+    background: rgba(41,43,49,.05);
+    border:1px solid rgba(255,255,255,.30);
+    box-shadow: 0 6px 16px rgba(0,0,0,.12);
+    backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+  }
+  .faq-item[open]::after{ content:"×"; font-size:18px; }
+  .faq-item[open] .faq-divider{ height:1px; margin:0 24px 16px; background:rgba(255,255,255,.35); }
+  
+  /* 6) REGISTER */
+  .register{ max-width:1440px; margin:80px auto 96px; text-align:center; }
+  .register .h1{
+    font-size:64px; line-height:1.05; font-weight:900; color:#0E111A; margin:0 0 16px;
+  }
+  .register .sub{
+    font-size:32px; line-height:1.25; font-weight:800; color:#0E111A; opacity:.9; margin:0 0 28px;
+  }
+  .cta-register{
+    display:inline-flex; align-items:center; justify-content:center;
+    height:56px; padding:0 28px; border-radius:40px; font-weight:800;
+    color:#fff; text-decoration:none;
+    background: linear-gradient(180deg, #3a3f4a 0%, #1a1d24 100%);
+    border:1px solid rgba(255,255,255,.20);
+    box-shadow: 0 18px 32px rgba(0,0,0,.22), 0 6px 10px rgba(0,0,0,.14);
+    backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+    transition: transform .18s ease, filter .18s ease;
+  }
+  .cta-register:hover{ transform:translateY(-1px); filter:brightness(1.03); }
+  
+  /* 7) PROGRAM — финальный, «по фреймам» (без правки HTML) */
+  .program{ background:#0E111A; padding:72px 0; }
+  .program .container{ max-width:1280px; padding:0 20px; }
+  
+  .prog-card{
+    border-radius:30px;
+    padding:20px;
+    display:flex; flex-direction:column; gap:8px;
+    background: linear-gradient(180deg, rgba(255,255,255,.10), rgba(255,255,255,.04));
+    border:1px solid rgba(255,255,255,.30);
+    box-shadow: 0 18px 40px rgba(0,0,0,.35), inset 0 1px 0 rgba(255,255,255,.06);
+    backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+    position:relative; overflow:hidden; color:#E9EDF5;
+  }
+  .prog-card > p:first-child{
+    margin:0; min-height:116px;
+    display:flex; align-items:center;
+    padding:20px;
+    color:#F5F7FA; font-weight:800; line-height:1.25;
+    border-radius:30px;
+    background:#292B31CC; /* 80% */
+    border:1px solid rgba(255,255,255,.30);
+    box-shadow: inset 0 1px 0 rgba(255,255,255,.08);
+  }
+  
+  /* строки программы (стеклянные плашки) */
+  .prog-row{
+    position:relative;
+    min-height:154px;
+    border-radius:30px;
+    padding:20px 120px 20px 20px;
+    background: linear-gradient(180deg, rgba(255,255,255,.10), rgba(255,255,255,.04));
+    border:1px solid rgba(255,255,255,.30);
+    color:#D8DEE9;
+    display:flex; flex-direction:column; justify-content:center;
+    backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+    box-shadow: 0 14px 32px rgba(0,0,0,.32), inset 0 1px 0 rgba(255,255,255,.06);
+    overflow:hidden;
+  }
+  /* круглый «блик» справа */
+  .prog-row::after{
+    content:"";
+    position:absolute; right:20px; top:50%; transform:translateY(-50%);
+    width:88.5px; height:88.5px; border-radius:50%;
+    background:#292B31; opacity:.10; filter: blur(8px);
+  }
+  /* демонстрационные полоски (удалишь при реальном контенте) */
+  .prog-row .line{ height:14px; border-radius:7px; background:rgba(255,255,255,.28); margin:8px 0; }
+  .prog-row .line.wide{ width:72%; } 
+  .prog-row .line.mid{ width:48%; } 
+  .prog-row .line.narrow{ width:32%; }
+  
+  /* 8) Responsive для новых блоков */
   @media (max-width:1040px){
     .features{ grid-template-columns:1fr 1fr; }
   }
@@ -460,173 +540,6 @@ body{
     .features{ grid-template-columns:1fr; }
     .section .h2{ font-size: clamp(32px, 8vw, 44px); }
     .aud-item{ gap:16px; }
-  }
-  
-  /* ===== FAQ ("Вопросы и ответы") ===== */
-.faq{ max-width:1280px; margin:48px auto 64px; display:grid; gap:8px; }
-
-/* карточка вопроса = стекло + блюр */
-.faq-item{
-  position:relative;
-  border-radius:30px;
-  background: rgba(255,255,255,.20);                  /* Fill ~20% */
-  border:1px solid rgba(255,255,255,.30);             /* Stroke inside 1px */
-  backdrop-filter: blur(30px); -webkit-backdrop-filter: blur(30px);
-  box-shadow: 0 8px 28px rgba(0,0,0,.12);
-  overflow:hidden;
-}
-
-/* заголовок вопроса (кликабелен) */
-.faq-item > summary{
-  list-style:none; cursor:pointer; user-select:none;
-  padding:20px 72px 20px 24px;
-  font-weight:800; font-size:20px; line-height:1.3; color:#0E111A;
-}
-.faq-item > summary::-webkit-details-marker{ display:none; }
-
-/* тело ответа */
-.faq-body{ padding:0 24px 20px 24px; color:#8A93A6; font-size:15.5px; line-height:1.55; }
-
-/* иконка +/× справа (38x38, radius 40, glass+shadow) */
-.faq-item::after{
-  content:"+";
-  position:absolute; right:20px; top:18px;
-  width:38px; height:38px; border-radius:40px;
-  display:grid; place-items:center; font-weight:900; color:#0E111A;
-  background: rgba(41,43,49,.05);                     /* #292B31 @5% */
-  border:1px solid rgba(255,255,255,.30);
-  box-shadow: 0 6px 16px rgba(0,0,0,.12);
-  backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
-}
-.faq-item[open]::after{ content:"×"; font-size:18px; }
-
-/* разделитель между summary и body (как лёгкая линия) */
-.faq-item[open] .faq-divider{
-  height:1px; margin:0 24px 16px; background:rgba(255,255,255,.35);
-}
-
-/* пример структуры (если нужно):
-<details class="faq-item">
-  <summary>Когда и где пройдёт событие?</summary>
-  <div class="faq-divider"></div>
-  <div class="faq-body">Текст ответа…</div>
-</details>
-*/
-
-/* ===== Регистрация (заголовок, подзаголовок, кнопка) ===== */
-.register{ max-width:1440px; margin:80px auto 96px; text-align:center; }
-.register .h1{
-  font-size:64px; line-height:1.05; font-weight:900; color:#0E111A; margin:0 0 16px;
-}
-.register .sub{
-  font-size:32px; line-height:1.25; font-weight:800; color:#0E111A; opacity:.9; margin:0 0 28px;
-}
-
-/* кнопка "Зарегистрироваться" — градиент + стекло + тень */
-.cta-register{
-  display:inline-flex; align-items:center; justify-content:center;
-  height:56px; padding:0 28px; border-radius:40px; font-weight:800;
-  color:#fff; text-decoration:none;
-  background: linear-gradient(180deg, #3a3f4a 0%, #1a1d24 100%); /* серый→тёмный */
-  border:1px solid rgba(255,255,255,.20);
-  box-shadow: 0 18px 32px rgba(0,0,0,.22), 0 6px 10px rgba(0,0,0,.14);
-  backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
-  transition: transform .18s ease, filter .18s ease;
-}
-.cta-register:hover{ transform:translateY(-1px); filter:brightness(1.03); }
-
-/* респонсив */
-@media (max-width:720px){
-  .register .h1{ font-size:42px; }
-  .register .sub{ font-size:22px; }
-  .faq{ margin:32px 16px 48px; }
-}
-/* === PROGRAM (по фреймам) ===================================== */
-
-/* фон секции как на макете */
-.program{
-    background:#0E111A;
-    padding:72px 0;
-  }
-  
-  /* контейнер: 1280, padding:20, gap:8, r:30, стеклянный борт */
-  .program .container{
-    max-width:1280px;             /* W */
-    padding:0 20px;               /* внутренние поля секции */
-  }
-  .prog-card{
-    border-radius:30px;           /* Corner radius */
-    padding:20px;                 /* Padding */
-    display:flex;
-    flex-direction:column;
-    gap:8px;                      /* Gap */
-    background:
-      linear-gradient(180deg, rgba(255,255,255,0.10), rgba(255,255,255,0.04)); /* Fill: Linear 10% */
-    border:1px solid rgba(255,255,255,0.30);   /* Stroke: Linear 30% (approx) */
-    box-shadow:
-      0 18px 40px rgba(0,0,0,.35),             /* Drop shadow */
-      inset 0 1px 0 rgba(255,255,255,.06);     /* лёгкий «стеклянный» кант */
-    backdrop-filter: blur(20px);               /* Background blur */
-    -webkit-backdrop-filter: blur(20px);
-    position:relative;
-    overflow:hidden;
-  }
-  
-  /* шапка: H=116, r:30, Fill #292B31 @80%, Stroke ~30% */
-  .prog-card > p:first-child{
-    margin:0;
-    min-height:116px;             /* H */
-    display:flex; align-items:center;
-    padding:20px;
-    color:#F5F7FA;
-    font-weight:800;
-    line-height:1.25;
-    border-radius:30px;
-    background:#292B31CC;         /* 80% (CC) */
-    border:1px solid rgba(255,255,255,0.30);
-    box-shadow: inset 0 1px 0 rgba(255,255,255,.08);
-  }
-  
-  /* строки программы (каждая как 1240×154, r:30, стекло) */
-  .prog-row{
-    position:relative;
-    min-height:154px;             /* H */
-    border-radius:30px;
-    padding:20px 120px 20px 20px; /* место под «кружок» справа */
-    background: linear-gradient(180deg, rgba(255,255,255,.10), rgba(255,255,255,.04));
-    border:1px solid rgba(255,255,255,.30);
-    color:#D8DEE9;
-    display:flex; flex-direction:column; justify-content:center;
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    box-shadow:
-      0 14px 32px rgba(0,0,0,.32),
-      inset 0 1px 0 rgba(255,255,255,.06);
-    overflow:hidden;
-  }
-  
-  /* «кружок» 88.5px, opacity 10%, layer blur */
-  .prog-row::after{
-    content:"";
-    position:absolute;
-    right:20px; top:50%; transform:translateY(-50%);
-    width:88.5px; height:88.5px; border-radius:50%;
-    background:#292B31; opacity:.10;         /* 10% */
-    filter: blur(8px);                        /* Layer blur (визуальный аналог) */
-  }
-  
-  /* демо-контент для строк — удалишь и подставишь свои элементы */
-  .prog-row .line{ 
-    height:14px; border-radius:7px; 
-    background:rgba(255,255,255,.28); 
-    margin:8px 0; 
-  }
-  .prog-row .line.wide{ width:72%; } 
-  .prog-row .line.mid{ width:48%; } 
-  .prog-row .line.narrow{ width:32%; }
-  
-  /* адаптив: аккуратнее масштабирую радиусы/отступы */
-  @media (max-width: 720px){
     .prog-card{ padding:16px; border-radius:22px; }
     .prog-card > p:first-child{ min-height:100px; padding:16px; border-radius:22px; }
     .prog-row{ min-height:120px; padding:16px 96px 16px 16px; border-radius:22px; }
