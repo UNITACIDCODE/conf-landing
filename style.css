@@ -672,4 +672,35 @@ body {
     background: linear-gradient(0deg, #EEF2F7 0%, rgba(14, 17, 26, 0) 100%);
     pointer-events: none;
   }
+/* ⛔️ выключаем общий оверлей/блюр (если он есть) */
+.page-gradient{ display:none !important; }
+
+/* секция PROGRAM остается тёмной */
+.program{ background:#0E111A; position:relative; }
+.program .container{ position:relative; z-index:1; }
+/* мягкий переход к светлой зоне (вниз) */
+.program::after{
+  content:""; position:absolute; left:0; right:0; bottom:-1px; height:220px;
+  pointer-events:none;
+  background:linear-gradient(180deg, rgba(14,17,26,1) 0%, rgba(245,247,250,1) 100%);
+  z-index:0;
+}
+
+/* QUESTIONS — светлая секция, фон без блюра */
+.questions{ background:#F5F7FA; position:relative; padding:72px 0; }
+.questions .container{ position:relative; z-index:1; }
+/* «подтягиваем» светлый фон сверху, без перекрытия текста */
+.questions::before{
+  content:""; position:absolute; left:0; right:0; top:-220px; height:220px;
+  pointer-events:none;
+  background:linear-gradient(180deg, rgba(245,247,250,0) 0%, rgba(245,247,250,1) 100%);
+  z-index:0;
+}
+
+/* REGISTRATION — тот же светлый, можно чуть усилить градиент */
+.registration{
+  position:relative; padding:80px 0 96px;
+  background:linear-gradient(180deg,#F5F7FA 0%, #EEF2F7 60%, #F5F7FA 100%);
+}
+.registration .container, .registration h2, .registration .subtitle{ position:relative; z-index:1; }
   
