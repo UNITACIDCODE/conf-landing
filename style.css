@@ -594,4 +594,65 @@ body{
     .faq-item::after{ right:16px; top:14px; }
     .faq-body{ padding:0 18px 16px; font-size:15px; }
   }
+/* 10) REGISTRATION */
+.registration {
+    background: linear-gradient(180deg, rgba(255,255,255,0.40), rgba(255,255,255,0.10));
+    padding: 80px 0;
+    text-align: center;
+  }
+  
+  .registration h2 {
+    font-size: 32px;
+    font-weight: 700;
+    color: #1B1D21;
+    margin-bottom: 32px;
+  }
+  
+  .registration .subtitle {
+    font-size: 20px;
+    font-weight: 500;
+    color: #1B1D21;
+    margin-bottom: 64px;
+  }
+  
+  /* Кнопка */
+  .registration .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+  
+    width: 336px;
+    height: 48px;
+    padding: 0 16px;
+  
+    border-radius: 15px;
+    font-size: 16px;
+    font-weight: 600;
+    color: #fff;
+    text-decoration: none;
+    cursor: pointer;
+  
+    background: linear-gradient(180deg, #31343F 0%, #1B1D21 100%);
+    border: 1px solid rgba(255,255,255,0.40);
+  
+    box-shadow:
+      0 8px 24px rgba(0,0,0,0.25),
+      inset 0 1px 0 rgba(255,255,255,0.2);
+  
+    transition: transform .2s ease, box-shadow .2s ease;
+  }
+  
+  .registration .btn:hover {
+    transform: translateY(-2px);
+    box-shadow:
+      0 12px 28px rgba(0,0,0,0.3),
+      inset 0 1px 0 rgba(255,255,255,0.3);
+  }
+  
+  @media (max-width: 720px) {
+    .registration h2 { font-size: 26px; }
+    .registration .subtitle { font-size: 16px; margin-bottom: 40px; }
+    .registration .btn { width: 100%; max-width: 280px; }
+  }
   
