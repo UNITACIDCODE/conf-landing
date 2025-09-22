@@ -530,129 +530,102 @@ body{
   .prog-row{ min-height:120px; padding:16px 96px 16px 16px; border-radius:22px; }
   .prog-row::after{ width:72px; height:72px; }
 }
-/* 9) QUESTIONS — стеклянные аккордеоны (как в макете) */
+/* === QUESTIONS (FAQ) — размеры и стиль как в макете === */
 .questions{
-    background: linear-gradient(180deg,#EEF2F7 0%, #F7F8FB 100%);
-    padding:72px 0;
+    background: linear-gradient(180deg,#EFF3F8 0%, #F6F8FB 60%, #EFF3F8 100%);
+    padding: 80px 0;
   }
   .questions .container{ max-width:1280px; padding:0 20px; }
   
-  .faq{ display:grid; gap:14px; }
+  /* Заголовок 1440×Hug, центр, жирный */
+  .questions .h2{
+    margin: 0 0 40px;
+    text-align: center;
+    font-size: 64px;
+    line-height: 1.05;
+    font-weight: 900;
+    letter-spacing: -0.4px;
+  }
   
-  /* карточка */
+  /* Стеклянные плашки-аккордеоны */
+  .faq{ display:flex; flex-direction:column; gap:16px; }
+  
   .faq-item{
-    position:relative;
-    border-radius:30px;
-    background:#fff;
-    border:1px solid #E8EDF5;
-    box-shadow: 0 10px 20px rgba(23,27,41,.06),
-                0 30px 60px rgba(23,27,41,.08);
-    overflow:hidden;
+    border-radius: 30px;
+    background: linear-gradient(180deg, rgba(255,255,255,.70), rgba(255,255,255,.30));
+    border: 1px solid rgba(0,0,0,.08);
+    box-shadow: 0 14px 32px rgba(0,0,0,.08), inset 0 1px 0 rgba(255,255,255,.40);
+    overflow: hidden;
   }
   
-  /* лёгкий верхний блик */
-  .faq-item::before{
-    content:"";
-    position:absolute; left:12px; right:12px; top:10px; height:14px;
-    border-radius:20px;
-    background: linear-gradient(180deg, rgba(255,255,255,.55), rgba(255,255,255,0));
-    pointer-events:none;
-  }
-  
-  /* заголовок */
+  /* Заголовок вопроса — крупный, как на визуале */
   .faq-item > summary{
-    list-style:none; cursor:pointer; user-select:none;
-    padding:20px 72px 20px 24px;
-    font-weight:900; font-size:26px; line-height:1.2;
-    color:#0E111A;
+    list-style: none; cursor: pointer; user-select: none;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 24px 28px;
+    font-size: 28px;               /* ↑ было 20px */
+    font-weight: 900;
+    color: #1B1D21;
   }
   .faq-item > summary::-webkit-details-marker{ display:none; }
   
-  /* стеклянная кнопка +/× справа */
-  .faq-item::after{
-    content:"+";
-    position:absolute; right:20px; top:18px;
-    width:38px; height:38px; border-radius:40px;
-    display:grid; place-items:center;
-    font-weight:900; font-size:20px; color:#0E111A;
+  /* Кнопка + / × справа (38×38) */
+  .faq-item > summary::after{
+    content: "+"; flex: 0 0 38px; width:38px; height:38px; border-radius:40px;
+    display:grid; place-items:center; font-size:26px; font-weight:700; line-height:1;
     background: rgba(41,43,49,.05);
     border:1px solid rgba(255,255,255,.30);
     box-shadow: 0 6px 16px rgba(0,0,0,.12);
-    backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+    backdrop-filter: blur(12px);
+    color:#1B1D21;
   }
-  .faq-item[open]::after{ content:"×"; font-size:18px; }
+  .faq-item[open] > summary::after{ content:"×"; font-size:20px; transform: rotate(90deg); }
   
-  /* разделитель и тело */
-  .faq-divider{ height:1px; margin:0 24px 16px; background:rgba(17,20,26,.08); }
-  .faq-body{ padding:0 24px 20px; color:#7D8495; font-size:16px; line-height:1.55; }
+  .faq-divider{ height:1px; margin: 0 28px; background: rgba(0,0,0,.08); }
+  .faq-body{
+    padding: 18px 28px 24px;
+    font-size: 16px; line-height: 1.55; color:#333;
+  }
   
-  /* адаптив */
+  /* === REGISTRATION — размеры как в макете === */
+  #registration{ padding: 80px 0 96px; text-align:center; }
+  
+  #registration .h2{
+    margin: 0 0 16px;
+    font-size: 64px;
+    line-height: 1.05;
+    font-weight: 900;
+    letter-spacing: -0.4px;
+  }
+  
+  #registration .subtitle{
+    margin: 0 0 28px;
+    font-size: 28px;               /* ближе к фигме */
+    line-height: 1.25;
+    font-weight: 800;
+    color:#0E111A; opacity:.9;
+  }
+  
+  /* Кнопка 336×48, стеклянная тёмная */
+  #registration .btn{
+    display:inline-flex; align-items:center; justify-content:center;
+    width:336px; height:48px; border-radius:15px;
+    font-weight:800; color:#fff; text-decoration:none;
+    background: linear-gradient(180deg,#3a3f4a 0%, #1a1d24 100%);
+    border:1px solid rgba(255,255,255,.20);
+    box-shadow: 0 18px 32px rgba(0,0,0,.22), 0 6px 10px rgba(0,0,0,.14);
+    backdrop-filter: blur(8px);
+    transition: transform .18s ease, filter .18s ease;
+  }
+  #registration .btn:hover{ transform: translateY(-1px); filter: brightness(1.03); }
+  
+  /* адаптив под 720px */
   @media (max-width:720px){
-    .faq{ gap:10px; }
-    .faq-item{ border-radius:22px; }
-    .faq-item > summary{ font-size:20px; padding:16px 64px 16px 18px; }
-    .faq-item::after{ right:16px; top:14px; }
-    .faq-body{ padding:0 18px 16px; font-size:15px; }
-  }
-/* 10) REGISTRATION */
-.registration {
-    background: linear-gradient(180deg, rgba(255,255,255,0.40), rgba(255,255,255,0.10));
-    padding: 80px 0;
-    text-align: center;
-  }
-  
-  .registration h2 {
-    font-size: 32px;
-    font-weight: 700;
-    color: #1B1D21;
-    margin-bottom: 32px;
-  }
-  
-  .registration .subtitle {
-    font-size: 20px;
-    font-weight: 500;
-    color: #1B1D21;
-    margin-bottom: 64px;
-  }
-  
-  /* Кнопка */
-  .registration .btn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 4px;
-  
-    width: 336px;
-    height: 48px;
-    padding: 0 16px;
-  
-    border-radius: 15px;
-    font-size: 16px;
-    font-weight: 600;
-    color: #fff;
-    text-decoration: none;
-    cursor: pointer;
-  
-    background: linear-gradient(180deg, #31343F 0%, #1B1D21 100%);
-    border: 1px solid rgba(255,255,255,0.40);
-  
-    box-shadow:
-      0 8px 24px rgba(0,0,0,0.25),
-      inset 0 1px 0 rgba(255,255,255,0.2);
-  
-    transition: transform .2s ease, box-shadow .2s ease;
-  }
-  
-  .registration .btn:hover {
-    transform: translateY(-2px);
-    box-shadow:
-      0 12px 28px rgba(0,0,0,0.3),
-      inset 0 1px 0 rgba(255,255,255,0.3);
-  }
-  
-  @media (max-width: 720px) {
-    .registration h2 { font-size: 26px; }
-    .registration .subtitle { font-size: 16px; margin-bottom: 40px; }
-    .registration .btn { width: 100%; max-width: 280px; }
+    .questions .h2{ font-size: 42px; margin-bottom: 28px; }
+    .faq-item > summary{ font-size: 20px; padding:20px; }
+    .faq-body{ padding:16px 20px 20px; }
+    #registration .h2{ font-size: 42px; }
+    #registration .subtitle{ font-size: 22px; }
+    #registration .btn{ width: 280px; }
   }
   
