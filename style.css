@@ -225,3 +225,115 @@ body{
     .cta{ transform: translate(50%,-50%); } /* уже есть в исходниках — оставляем */
   }
   
+  /* === WHAT: визуал как в фигме === */
+
+/* Заголовок больше и плотнее */
+.section .h2{
+    font-size: clamp(48px, 7vw, 80px);
+    line-height: 1.05;
+    font-weight: 900;
+    letter-spacing: -0.6px;
+    margin-bottom: 28px;
+  }
+  
+  /* Сетка карточек — равномерные зазоры */
+  .features{
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-top: 28px;
+  }
+  
+  /* Карточки: большой радиус, мягкая тень, "светлый" бордер и лёгкий внутренний хайлайт */
+  .card{
+    position: relative;
+    border-radius: 28px;
+    padding: 24px 22px 22px;
+    background: #fff;
+    border: 1px solid #E8EDF5;
+    box-shadow:
+      0 10px 20px rgba(23, 27, 41, .06),
+      0 30px 60px rgba(23, 27, 41, .08);
+  }
+  
+  /* Свечение по периметру (еле заметное) */
+  .card::after{
+    content:"";
+    position:absolute; inset:0;
+    border-radius: inherit;
+    pointer-events:none;
+    box-shadow: 0 1px 0 rgba(255,255,255,.9) inset;
+  }
+  
+  /* Небольшой "стеклянный" бликующий кант по верхней кромке */
+  .card::before{
+    content:"";
+    position:absolute; left:10px; right:10px; top:10px; height:14px;
+    border-radius: 20px;
+    background: linear-gradient(180deg, rgba(255,255,255,.55), rgba(255,255,255,0));
+    pointer-events:none;
+    filter: blur(0.2px);
+  }
+  
+  /* Стрелка в левом верхнем углу (как пиктограмма в макете) */
+  .card > .card-arrow::before,
+  .card::marker{ display:none; }
+  .card{
+    --arr-bg:#F4F6FB; --arr-ring:#E8EDF5; --arr-ink:#0E111A;
+  }
+  .card .card-arrow{ position:absolute; left:14px; top:12px; }
+  .card .card-arrow::after{
+    content:"↓";
+    display:inline-flex; align-items:center; justify-content:center;
+    width:22px; height:22px; border-radius:999px;
+    background: var(--arr-bg);
+    border:1px solid var(--arr-ring);
+    color: var(--arr-ink); font-weight:900; font-size:14px; line-height:1;
+    box-shadow: 0 2px 6px rgba(17,20,26,.08);
+  }
+  
+  /* Заголовок/текст в карточке ближе к макету */
+  .card h3{
+    margin: 10px 0 8px;
+    font-size: 20px;
+    font-weight: 900;
+    letter-spacing: -0.2px;
+  }
+  .card p{
+    margin: 0;
+    color: #7D8495;
+    font-size: 15.5px;
+    line-height: 1.55;
+  }
+  
+  /* Подзаголовок под сеткой — серее и тоньше */
+  .subtitle.center{
+    color:#8A93A6;
+    font-weight: 500;
+  }
+  
+  /* Кнопка под блоком — чуть больше и с мягкой тенью */
+  .section .btn.primary{
+    height: 52px; padding: 0 26px; border-radius: 999px;
+    background: linear-gradient(180deg,#1f2430,#0f121a);
+    box-shadow: 0 14px 28px rgba(15,18,26,.22), 0 4px 8px rgba(15,18,26,.12);
+    font-weight: 800;
+  }
+  
+  .card::before {
+    content: "";
+    position: absolute;
+    left: 14px;
+    top: 12px;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background: #F4F6FB;
+    border: 1px solid #E8EDF5;
+    box-shadow: 0 2px 6px rgba(17,20,26,.08);
+  
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%230E111A' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'><line x1='12' y1='5' x2='12' y2='19'/><polyline points='19 12 12 19 5 12'/></svg>");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 12px;
+  }
+  
