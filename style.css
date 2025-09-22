@@ -811,4 +811,23 @@ section{
     position:relative;
     z-index:1;
   }
-  
+  /* === ABOUT: фиксируем иконки справа, чтобы не разъезжались === */
+.about .row,
+.about .container { display:flex; align-items:center; }
+
+.about .container > svg,
+.about .container .aud-icon,
+.about .grid .container > svg{
+  width:63px;              /* как в макете */
+  height:63px;
+  flex:0 0 63px;           /* не растягивать */
+  border-radius:50%;
+  margin-left:auto;        /* прижать вправо */
+}
+
+/* если внутри SVG есть заливки — пусть берут currentColor (серый), а не чисто чёрный */
+.about .container > svg path { fill: currentColor; }
+.about .container { color:#C8CDD8; } /* фон/тон иконки; при нужде подправь */
+
+/* на всякий случай глушим возможные глобальные правила */
+.about svg { max-width:none !important; height:63px !important; position:static !important; }
