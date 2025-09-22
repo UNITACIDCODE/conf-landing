@@ -480,133 +480,53 @@ body{
   }
   .cta-register:hover{ transform:translateY(-1px); filter:brightness(1.03); }
   
-  /* 7) PROGRAM — финальный, «по фреймам» (без правки HTML) */
-  .program{ background:#0E111A; padding:72px 0; }
-  .program .container{ max-width:1280px; padding:0 20px; }
-  
-  .prog-card{
-    border-radius:30px;
-    padding:20px;
-    display:flex; flex-direction:column; gap:8px;
-    background: linear-gradient(180deg, rgba(255,255,255,.10), rgba(255,255,255,.04));
-    border:1px solid rgba(255,255,255,.30);
-    box-shadow: 0 18px 40px rgba(0,0,0,.35), inset 0 1px 0 rgba(255,255,255,.06);
-    backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
-    position:relative; overflow:hidden; color:#E9EDF5;
-  }
-  .prog-card > p:first-child{
-    margin:0; min-height:116px;
-    display:flex; align-items:center;
-    padding:20px;
-    color:#F5F7FA; font-weight:800; line-height:1.25;
-    border-radius:30px;
-    background:#292B31CC; /* 80% */
-    border:1px solid rgba(255,255,255,.30);
-    box-shadow: inset 0 1px 0 rgba(255,255,255,.08);
-  }
-  
-  /* строки программы (стеклянные плашки) */
-  .prog-row{
-    position:relative;
-    min-height:154px;
-    border-radius:30px;
-    padding:20px 120px 20px 20px;
-    background: linear-gradient(180deg, rgba(255,255,255,.10), rgba(255,255,255,.04));
-    border:1px solid rgba(255,255,255,.30);
-    color:#D8DEE9;
-    display:flex; flex-direction:column; justify-content:center;
-    backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
-    box-shadow: 0 14px 32px rgba(0,0,0,.32), inset 0 1px 0 rgba(255,255,255,.06);
-    overflow:hidden;
-  }
-  /* круглый «блик» справа */
-  .prog-row::after{
-    content:"";
-    position:absolute; right:20px; top:50%; transform:translateY(-50%);
-    width:88.5px; height:88.5px; border-radius:50%;
-    background:#292B31; opacity:.10; filter: blur(8px);
-  }
-  /* демонстрационные полоски (удалишь при реальном контенте) */
-  .prog-row .line{ height:14px; border-radius:7px; background:rgba(255,255,255,.28); margin:8px 0; }
-  .prog-row .line.wide{ width:72%; } 
-  .prog-row .line.mid{ width:48%; } 
-  .prog-row .line.narrow{ width:32%; }
-  
-  /* 8) Responsive для новых блоков */
-  @media (max-width:1040px){
-    .features{ grid-template-columns:1fr 1fr; }
-  }
-  @media (max-width:720px){
-    .features{ grid-template-columns:1fr; }
-    .section .h2{ font-size: clamp(32px, 8vw, 44px); }
-    .aud-item{ gap:16px; }
-    .prog-card{ padding:16px; border-radius:22px; }
-    .prog-card > p:first-child{ min-height:100px; padding:16px; border-radius:22px; }
-    .prog-row{ min-height:120px; padding:16px 96px 16px 16px; border-radius:22px; }
-    .prog-row::after{ width:72px; height:72px; }
-  }
-  /* kill old overlay */
-.program .prog-blur{ display:none !important; }
-
-/* force new glass styles with higher specificity */
-.program .prog-card{
-  border-radius:30px !important;
-  padding:20px !important;
-  background:linear-gradient(180deg,rgba(255,255,255,.10),rgba(255,255,255,.04)) !important;
-  border:1px solid rgba(255,255,255,.30) !important;
-  box-shadow:0 18px 40px rgba(0,0,0,.35), inset 0 1px 0 rgba(255,255,255,.06) !important;
-  backdrop-filter:blur(20px) !important;
-  -webkit-backdrop-filter:blur(20px) !important;
-  color:#E9EDF5 !important;
-}
-.program .prog-card > p:first-child{
-  min-height:116px !important;
-  padding:20px !important;
-  border-radius:30px !important;
-  background:#292B31CC !important; /* 80% */
-  border:1px solid rgba(255,255,255,.30) !important;
-  box-shadow:inset 0 1px 0 rgba(255,255,255,.08) !important;
-  color:#F5F7FA !important;
-  font-weight:800 !important;
-}
-/* PROGRAM — стекло как в макете */
-.program{ background:#0E111A; }
+/* === PROGRAM (final, text rows) === */
+.program{ background:#0E111A; padding:72px 0; }
 .program .container{ max-width:1280px; padding:0 20px; }
 
 .prog-card{
   position:relative;
   border-radius:30px;
   padding:20px;
-  background:linear-gradient(180deg,rgba(255,255,255,.10),rgba(255,255,255,.04));
+  display:flex; flex-direction:column; gap:16px;
+  background:linear-gradient(180deg, rgba(255,255,255,.10), rgba(255,255,255,.04));
   border:1px solid rgba(255,255,255,.30);
-  backdrop-filter:blur(20px); -webkit-backdrop-filter:blur(20px);
   box-shadow:0 18px 40px rgba(0,0,0,.35), inset 0 1px 0 rgba(255,255,255,.06);
-  overflow:hidden;
+  backdrop-filter:blur(20px); -webkit-backdrop-filter:blur(20px);
+  color:#E9EDF5; overflow:hidden;
 }
 
-/* внутренний «второй кант» */
-.prog-card::before{
-  content:""; position:absolute; inset:8px;
-  border-radius:24px; border:1px solid rgba(255,255,255,.20);
-  pointer-events:none;
-}
-
-/* лёгкое внешнее свечение по периметру */
-.prog-card::after{
-  content:""; position:absolute; inset:-2px; border-radius:32px;
-  box-shadow:0 0 0 1px rgba(255,255,255,.12), inset 0 40px 80px rgba(0,0,0,.35);
-  pointer-events:none; opacity:.6;
-}
-
-/* шапка с текстом */
 .prog-card > p:first-child{
   margin:0; min-height:116px; display:flex; align-items:center;
   padding:20px; border-radius:30px;
   background:#292B31CC; border:1px solid rgba(255,255,255,.30);
   box-shadow: inset 0 1px 0 rgba(255,255,255,.08);
   color:#F5F7FA; font-weight:800; line-height:1.25;
-  text-shadow:0 4px 28px rgba(255,255,255,.18);
 }
 
-/* убираем старую затычку */
-.prog-blur{ display:none !important; }
+.prog-row{
+  position:relative;
+  min-height:154px;
+  border-radius:30px;
+  padding:24px 120px 24px 24px;
+  background:linear-gradient(180deg, rgba(255,255,255,.10), rgba(255,255,255,.04));
+  border:1px solid rgba(255,255,255,.30);
+  box-shadow:0 14px 32px rgba(0,0,0,.32), inset 0 1px 0 rgba(255,255,255,.06);
+  backdrop-filter:blur(20px); -webkit-backdrop-filter:blur(20px);
+  display:flex; flex-direction:column; justify-content:center;
+  color:#E9EDF5; overflow:hidden;
+}
+.prog-row::after{
+  content:""; position:absolute; right:20px; top:50%; transform:translateY(-50%);
+  width:88.5px; height:88.5px; border-radius:50%;
+  background:#292B31; opacity:.10; filter: blur(8px);
+}
+.prog-row h3{ margin:0 0 8px; font-size:20px; font-weight:800; color:#fff; }
+.prog-row p{ margin:0; font-size:15.5px; color:#D8DEE9; }
+
+@media (max-width:720px){
+  .prog-card{ padding:16px; border-radius:22px; }
+  .prog-card > p:first-child{ min-height:100px; padding:16px; border-radius:22px; }
+  .prog-row{ min-height:120px; padding:16px 96px 16px 16px; border-radius:22px; }
+  .prog-row::after{ width:72px; height:72px; }
+}
