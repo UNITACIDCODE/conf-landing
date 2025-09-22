@@ -545,4 +545,27 @@ body{
     .prog-row{ min-height:120px; padding:16px 96px 16px 16px; border-radius:22px; }
     .prog-row::after{ width:72px; height:72px; }
   }
-  
+  /* kill old overlay */
+.program .prog-blur{ display:none !important; }
+
+/* force new glass styles with higher specificity */
+.program .prog-card{
+  border-radius:30px !important;
+  padding:20px !important;
+  background:linear-gradient(180deg,rgba(255,255,255,.10),rgba(255,255,255,.04)) !important;
+  border:1px solid rgba(255,255,255,.30) !important;
+  box-shadow:0 18px 40px rgba(0,0,0,.35), inset 0 1px 0 rgba(255,255,255,.06) !important;
+  backdrop-filter:blur(20px) !important;
+  -webkit-backdrop-filter:blur(20px) !important;
+  color:#E9EDF5 !important;
+}
+.program .prog-card > p:first-child{
+  min-height:116px !important;
+  padding:20px !important;
+  border-radius:30px !important;
+  background:#292B31CC !important; /* 80% */
+  border:1px solid rgba(255,255,255,.30) !important;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.08) !important;
+  color:#F5F7FA !important;
+  font-weight:800 !important;
+}
