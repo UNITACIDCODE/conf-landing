@@ -47,7 +47,7 @@ body{
 .hero{padding:32px 0 16px}
 .hero-card{
   position:relative;overflow:hidden;border-radius:26px;padding:0;height:var(--hero-height);
-  background:url("assets/hero-desktop.png") center/cover no-repeat;
+  background:url("assets/hero-desktop.webp") center/cover no-repeat;
   border:1px solid var(--ring);box-shadow:var(--shadow);
 }
 .hero-top,.hero-meta{display:none}
