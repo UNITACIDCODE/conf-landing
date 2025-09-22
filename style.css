@@ -696,3 +696,119 @@ body {
 .registration{
   background:linear-gradient(180deg,#F5F7FA 0%, #EEF2F7 60%, #F5F7FA 100%) !important;
 }
+/* --- Fix: мягкий стык PROGRAM → QUESTIONS, без наезда --- */
+
+/* PROGRAM: тёмный блок + прозрачный «хвост» вниз, под содержимым */
+.program{
+    position: relative;
+    z-index: 0;            /* базовый слой */
+  }
+  .program::after{
+    content:"";
+    position:absolute;
+    left:0; right:0; bottom:-1px;
+    height:200px;
+    pointer-events:none;
+    /* ВАЖНО: уходим в прозрачность, не рисуем светлый цвет поверх */
+    background: linear-gradient(180deg, rgba(14,17,26,1) 0%, rgba(14,17,26,0) 100%);
+    z-index:-1;            /* уходим ПОД соседние секции */
+  }
+  
+  /* QUESTIONS: светлая секция поверх + «подтянуть» светлый фон вверх */
+  .questions{
+    position:relative;
+    z-index:1;             /* выше program */
+    background:#F5F7FA;
+  }
+  .questions .container{ position:relative; z-index:2; }
+  .questions::before{
+    content:"";
+    position:absolute;
+    left:0; right:0; top:-140px;
+    height:140px;
+    pointer-events:none;
+    background: linear-gradient(180deg, rgba(245,247,250,0) 0%, rgba(245,247,250,1) 100%);
+    z-index:1;             /* под контентом, но над хвостом program */
+  }
+  
+/* === ABOUT (Для кого конференция) ====================== */
+.about{ padding:80px 0; background:transparent; }
+.about .container{ max-width:1280px; padding:0 20px; }
+
+/* заголовок — у нас уже есть .section .h2, просто центрнем */
+.about .h2{ margin:0 0 40px; text-align:center; }
+
+/* сетка списка */
+.about .grid .main{
+  display:flex;
+  flex-direction:column;
+  gap:12px;                 /* в макете маленький вертикальный шаг */
+}
+
+/* карточка строки */
+.about .grid .container{
+  position:relative;
+  border-radius:30px;
+  padding:20px 96px 20px 24px;     /* справа место под круг 63px */
+  background:linear-gradient(180deg,rgba(255,255,255,.70),rgba(255,255,255,.30));
+  border:1px solid rgba(0,0,0,.08);
+  box-shadow:0 14px 32px rgba(0,0,0,.08), inset 0 1px 0 rgba(255,255,255,.40);
+}
+
+/* внутренняя рамка (Frame 2131327240) — просто блочный контейнер */
+.about .grid .container .frame{ display:block; }
+
+/* заголовок и подзаголовок (YS Geo) */
+.about .grid .container .title{
+  margin:0 0 6px;
+  font-family:"YS Geo",system-ui,sans-serif;
+  font-weight:500;                  /* Medium */
+  font-size:32px;
+  line-height:1.2;                  /* 120% */
+  letter-spacing:-0.035em;          /* ~ -3.5% */
+  color:#0E111A;
+}
+.about .grid .container .sub{
+  margin:0;
+  font-family:"YS Geo",system-ui,sans-serif;
+  font-weight:400;                  /* Regular */
+  font-size:18px;
+  line-height:1.2;                  /* 120% */
+  letter-spacing:-0.02em;           /* ~ -2% */
+  color:#0E111A; opacity:.8;
+}
+
+/* правый круг с иконкой (Subtract/Exclude), 63×63, X≈правый, Y=20 */
+.about .grid .container .icon{
+  position:absolute; right:20px; top:20px;
+  width:63px; height:63px; border-radius:50%;
+  display:grid; place-items:center;
+  background:#F4F6FB;
+  border:1px solid #E8EDF5;
+  box-shadow:0 2px 6px rgba(17,20,26,.08);
+}
+.about .grid .container .icon svg{ width:28px; height:28px; fill:#0E111A; opacity:.6; }
+
+/* мобильная подстройка */
+@media (max-width:720px){
+  .about{ padding:48px 0; }
+  .about .h2{ font-size:42px; margin-bottom:28px; }
+  .about .grid .container{ border-radius:22px; padding:18px 84px 18px 18px; }
+  .about .grid .container .title{ font-size:22px; }
+  .about .grid .container .sub{ font-size:15px; }
+  .about .grid .container .icon{ width:56px; height:56px; }
+}
+
+/* === Универсальный вертикальный ритм для секций === */
+section{
+    padding:80px 0;
+    position:relative;
+  }
+  section .container{
+    max-width:1280px;
+    padding:0 20px;
+    margin:0 auto;
+    position:relative;
+    z-index:1;
+  }
+  
