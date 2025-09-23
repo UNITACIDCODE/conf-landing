@@ -1,1132 +1,1114 @@
 /* ===== Base ===== */
 :root{
-  --page:#f3f5f8;
-  --paper:#ffffff;
-  --ink:#0f1220;
-  --muted:#6b7280;
-  --ring:#E3E7EE;
-  --shadow:0 12px 28px rgba(16,20,31,.12), 0 2px 6px rgba(16,20,31,.06);
-  --radius:18px;
-  --radius-lg:24px;
-}
-
-*{box-sizing:border-box}
-html,body{margin:0;padding:0}
-body{
-  font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial;
-  color:var(--ink);
-  background:linear-gradient(180deg,#f7f8fb 0%, #eef2f7 40%, #f7f8fb 100%);
-  line-height:1.5;
-  -webkit-font-smoothing:antialiased;
-  -moz-osx-font-smoothing:grayscale;
-}
-
-.container{max-width:1120px;margin:0 auto;padding:0 24px}
-.center{text-align:center}
-.section { padding: 80px 0; }
-.h2{font-size:44px;line-height:1.15;margin:0 0 28px;font-weight:800;letter-spacing:.2px}
-.subtitle{color:var(--muted);margin:12px 0 28px}
-
-/* ===== Buttons ===== */
-.btn{
-  display:inline-flex;align-items:center;justify-content:center;
-  height:46px;padding:0 20px;border-radius:999px;
-  border:1px solid #cfd6e4;background:#fff;color:#111827;font-weight:700;
-  text-decoration:none;box-shadow:var(--shadow);transition:transform .18s ease, box-shadow .18s ease;
-}
-.btn:hover{transform:translateY(-1px)}
-.btn.ghost{background:transparent}
-.btn.primary{background:#11131a;color:#fff;border-color:#11131a}
-
-/* ===== HERO ===== */
-:root{
-  --hero-height:560px;
-  --cta-top:41%;
-  --cta-right:7.5%;
-}
-.hero{padding:32px 0 16px}
-.hero-card{
-  position:relative;overflow:hidden;border-radius:26px;padding:0;height:var(--hero-height);
-  background:url("assets/hero-desktop.webp") center/cover no-repeat;
-  border:1px solid var(--ring);box-shadow:var(--shadow);
-}
-.hero-top,.hero-meta{display:none}
-.cta{
-  position:absolute;top:var(--cta-top);right:var(--cta-right);transform:translateY(-50%);
-  display:inline-flex;align-items:center;justify-content:center;
-  height:50px;padding:0 22px;border-radius:999px;background:linear-gradient(180deg,#1f2430,#0f121a);
-  color:#fff;text-decoration:none;font-weight:800;box-shadow:0 14px 28px rgba(15,18,26,.28), 0 2px 4px rgba(15,18,26,.18);
-  z-index:2;
-}
-
-/* ===== WHAT (cards) ===== */
-.features{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:22px}
-.card{
-  background:var(--paper);border:1px solid var(--ring);border-radius:var(--radius);padding:20px 18px;
-  box-shadow:var(--shadow);
-}
-.card h3{margin:2px 0 10px;font-size:18px;font-weight:800;letter-spacing:.2px}
-.card p{margin:0;color:var(--muted)}
-
-/* ===== Audience list ===== */
-.audience{list-style:none;padding:0;margin:18px 0 0;display:grid;gap:12px}
-.aud-item{
-  display:flex;align-items:center;justify-content:space-between;gap:16px;
-  padding:16px 18px;border-radius:var(--radius);background:#fff;border:1px solid var(--ring);box-shadow:var(--shadow);
-}
-.aud-text strong{display:block;font-weight:800}
-.aud-text span{display:block;color:var(--muted);font-size:14px;margin-top:4px}
-.aud-icon{
-  width:42px;height:42px;border-radius:999px;display:flex;align-items:center;justify-content:center;
-  background:#f3f6fb;border:1px solid var(--ring);font-weight:900;color:#5f6b7d;
-}
-
-/* ===== Program (dark) ===== */
-.program{background:#0d0f14;padding:72px 0}
-.prog-card{
-  position:relative;border-radius:22px;padding:18px 18px 120px;
-  background:rgba(255,255,255,.06);
-  border:1px solid rgba(255,255,255,.14);
-  color:#e9edf5;
-  box-shadow:inset 0 0 0 1px rgba(255,255,255,.04);
-}
-.prog-card p{margin:8px 6px 0}
-.prog-blur{
-  position:absolute;left:0;right:0;bottom:0;height:120px;border-radius:0 0 22px 22px;
-  backdrop-filter:blur(6px);background:linear-gradient(180deg,rgba(13,15,20,0),rgba(13,15,20,.6));
-}
-
-/* ===== Footer ===== */
-.footer{padding:40px 0 72px;color:#8a91a1;text-align:center}
-
-/* ===== Responsive ===== */
-@media (max-width: 1040px){
-  .features{grid-template-columns:1fr 1fr}
-}
-@media (max-width: 960px){
-  :root{ --hero-height: 420px; --cta-top: 58%; --cta-right: 8%; }
-}
-@media (max-width: 720px){
-  .h2{font-size:32px}
-  .features{grid-template-columns:1fr}
-  :root{ --hero-height: 360px; --cta-top: 72%; --cta-right: 50%; }
-  .cta{ transform:translate(50%, -50%); }
-}
-
-/* ===== FIGMA TWEAKS (override) ===== */
-
-/* 0) Базовые токены под фигму */
-:root{
-    --ink:#0d0f14;
-    --muted:#7d8495;
-    --ring:#e6eaf2;
+    --page:#f3f5f8;
     --paper:#ffffff;
-  
-    --radius:20px;
-    --radius-lg:22px;
-  
-    /* тени как в макете: мягкие, двухуровневые */
-    --shadow-card: 0 4px 12px rgba(0,0,0,.04), 0 12px 28px rgba(0,0,0,.06);
-    --shadow-cta: 0 14px 28px rgba(15,18,26,.28), 0 2px 4px rgba(15,18,26,.18);
-  
-    /* позиция CTA ниже (десктоп), поправим и брейкпоинты ниже */
-    --cta-top: 58%;
+    --ink:#0f1220;
+    --muted:#6b7280;
+    --ring:#E3E7EE;
+    --shadow:0 12px 28px rgba(16,20,31,.12), 0 2px 6px rgba(16,20,31,.06);
+    --radius:18px;
+    --radius-lg:24px;
   }
   
-  /* 1) Заголовки крупнее, плотнее */
-  .h2{
-    font-size: clamp(36px,5vw,56px);
-    line-height: 1.12;
-    font-weight: 900;
-    letter-spacing: -0.2px;
-    margin-bottom: 28px;
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  body{
+    font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial;
+    color:var(--ink);
+    background:linear-gradient(180deg,#f7f8fb 0%, #eef2f7 40%, #f7f8fb 100%);
+    line-height:1.5;
+    -webkit-font-smoothing:antialiased;
+    -moz-osx-font-smoothing:grayscale;
   }
   
-  /* 2) Карточки (what / audience / faq) — белые, с мягкой тенью */
-  .card,
-  .aud-item,
-  .faq-item{
-    background: var(--paper);
-    border: 1px solid var(--ring);
-    border-radius: var(--radius);
-    box-shadow: var(--shadow-card);
-  }
+  .container{max-width:1120px;margin:0 auto;padding:0 24px}
+  .center{text-align:center}
+  .section { padding: 80px 0; }
+  .h2{font-size:44px;line-height:1.15;margin:0 0 28px;font-weight:800;letter-spacing:.2px}
+  .subtitle{color:var(--muted);margin:12px 0 28px}
   
-  /* 3) Тексты: серый вторичный ближе к макету */
-  .subtitle,
-  .card p,
-  .aud-text span,
-  .faq-body{
-    color: var(--muted);
-  }
-  
-  /* 4) Кнопки — глубокий тёмный градиент и «висячая» тень */
-  .btn.primary{
-    background: linear-gradient(180deg,#1f2430,#0f121a);
-    color:#fff;
-    border:none;
-    box-shadow: var(--shadow-cta);
-  }
+  /* ===== Buttons ===== */
   .btn{
-    transition: transform .18s ease, box-shadow .18s ease, filter .18s ease;
+    display:inline-flex;align-items:center;justify-content:center;
+    height:46px;padding:0 20px;border-radius:999px;
+    border:1px solid #cfd6e4;background:#fff;color:#111827;font-weight:700;
+    text-decoration:none;box-shadow:var(--shadow);transition:transform .18s ease, box-shadow .18s ease;
   }
-  .btn:hover{ transform: translateY(-1px); filter: brightness(1.02); }
+  .btn:hover{transform:translateY(-1px)}
+  .btn.ghost{background:transparent}
+  .btn.primary{background:#11131a;color:#fff;border-color:#11131a}
   
-  /* 5) HERO — CTA ниже и чуть массивнее */
+  /* ===== HERO ===== */
+  :root{
+    --hero-height:560px;
+    --cta-top:41%;
+    --cta-right:7.5%;
+  }
+  .hero{padding:32px 0 16px}
+  .hero-card{
+    position:relative;overflow:hidden;border-radius:26px;padding:0;height:var(--hero-height);
+    background:url("assets/hero-desktop.webp") center/cover no-repeat;
+    border:1px solid var(--ring);box-shadow:var(--shadow);
+  }
+  .hero-top,.hero-meta{display:none}
   .cta{
-    top: var(--cta-top);
-    height: 52px;
-    padding: 0 24px;
-    border-radius: 999px;
-    background: linear-gradient(180deg,#1f2430,#0f121a);
-    color:#fff;
-    font-weight: 900;
-    box-shadow: var(--shadow-cta);
+    position:absolute;top:var(--cta-top);right:var(--cta-right);transform:translateY(-50%);
+    display:inline-flex;align-items:center;justify-content:center;
+    height:50px;padding:0 22px;border-radius:999px;background:linear-gradient(180deg,#1f2430,#0f121a);
+    color:#fff;text-decoration:none;font-weight:800;box-shadow:0 14px 28px rgba(15,18,26,.28), 0 2px 4px rgba(15,18,26,.18);
+    z-index:2;
   }
   
-  /* 6) WHAT: чуть больше воздуха между карточками */
-  .features{ gap: 22px; }
+  /* ===== WHAT (cards) ===== */
+  .features{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:22px}
+  .card{
+    background:var(--paper);border:1px solid var(--ring);border-radius:var(--radius);padding:20px 18px;
+    box-shadow:var(--shadow);
+  }
+  .card h3{margin:2px 0 10px;font-size:18px;font-weight:800;letter-spacing:.2px}
+  .card p{margin:0;color:var(--muted)}
   
-  /* 7) AUDIENCE — плашка и иконка справа, как в макете */
+  /* ===== Audience list ===== */
+  .audience{list-style:none;padding:0;margin:18px 0 0;display:grid;gap:12px}
   .aud-item{
-    padding: 18px 20px;
-    border-radius: 22px;
+    display:flex;align-items:center;justify-content:space-between;gap:16px;
+    padding:16px 18px;border-radius:var(--radius);background:#fff;border:1px solid var(--ring);box-shadow:var(--shadow);
   }
-  .aud-text strong{ font-weight: 900; }
+  .aud-text strong{display:block;font-weight:800}
+  .aud-text span{display:block;color:var(--muted);font-size:14px;margin-top:4px}
   .aud-icon{
-    width: 52px; height: 52px;
-    border-radius: 50%;
-    background: #f3f6fb;
-    border: 1px solid var(--ring);
-    font-weight: 900;
-    color: #5f6b7d;
+    width:42px;height:42px;border-radius:999px;display:flex;align-items:center;justify-content:center;
+    background:#f3f6fb;border:1px solid var(--ring);font-weight:900;color:#5f6b7d;
   }
   
-  /* 8) PROGRAM — тёмный фон секции + стеклянная карточка */
-  .program{ background:#0d0f14; padding: 80px 0; }
+  /* ===== Program (dark) ===== */
+  .program{background:#0d0f14;padding:72px 0}
   .prog-card{
-    position: relative;
-    border-radius: 22px;
-    padding: 18px 18px 120px;
+    position:relative;border-radius:22px;padding:18px 18px 120px;
+    background:rgba(255,255,255,.06);
+    border:1px solid rgba(255,255,255,.14);
     color:#e9edf5;
-    background: rgba(255,255,255,.06);
-    border: 1px solid rgba(255,255,255,.14);
-    box-shadow: inset 0 0 0 1px rgba(255,255,255,.04), 0 8px 28px rgba(0,0,0,.35);
-    backdrop-filter: blur(8px);
+    box-shadow:inset 0 0 0 1px rgba(255,255,255,.04);
   }
-  .prog-card p{ margin: 6px 6px 0; }
+  .prog-card p{margin:8px 6px 0}
+  .prog-blur{
+    position:absolute;left:0;right:0;bottom:0;height:120px;border-radius:0 0 22px 22px;
+    backdrop-filter:blur(6px);background:linear-gradient(180deg,rgba(13,15,20,0),rgba(13,15,20,.6));
+  }
   
-  /* 9) Респонсив поправки (CTA позиция) */
+  /* ===== Footer ===== */
+  .footer{padding:40px 0 72px;color:#8a91a1;text-align:center}
+  
+  /* ===== Responsive ===== */
+  @media (max-width: 1040px){
+    .features{grid-template-columns:1fr 1fr}
+  }
   @media (max-width: 960px){
-    :root{ --cta-top: 70%; }
+    :root{ --hero-height: 420px; --cta-top: 58%; --cta-right: 8%; }
   }
   @media (max-width: 720px){
-    :root{ --cta-top: 78%; }
-    .cta{ transform: translate(50%,-50%); } /* уже есть в исходниках — оставляем */
+    .h2{font-size:32px}
+    .features{grid-template-columns:1fr}
+    :root{ --hero-height: 360px; --cta-top: 72%; --cta-right: 50%; }
+    .cta{ transform:translate(50%, -50%); }
   }
   
-  /* === WHAT: визуал как в фигме === */
-
-/* Заголовок больше и плотнее */
-.section .h2{
-    font-size: clamp(48px, 7vw, 80px);
-    line-height: 1.05;
-    font-weight: 900;
-    letter-spacing: -0.6px;
-    margin-bottom: 28px;
-  }
+  /* ===== FIGMA TWEAKS (override) ===== */
   
-  /* Сетка карточек — равномерные зазоры */
-  .features{
-    grid-template-columns: repeat(3, 1fr);
-    gap: 24px;
-    margin-top: 28px;
-  }
+  /* 0) Базовые токены под фигму */
+  :root{
+      --ink:#0d0f14;
+      --muted:#7d8495;
+      --ring:#e6eaf2;
+      --paper:#ffffff;
+    
+      --radius:20px;
+      --radius-lg:22px;
+    
+      /* тени как в макете: мягкие, двухуровневые */
+      --shadow-card: 0 4px 12px rgba(0,0,0,.04), 0 12px 28px rgba(0,0,0,.06);
+      --shadow-cta: 0 14px 28px rgba(15,18,26,.28), 0 2px 4px rgba(15,18,26,.18);
+    
+      /* позиция CTA ниже (десктоп), поправим и брейкпоинты ниже */
+      --cta-top: 58%;
+    }
+    
+    /* 1) Заголовки крупнее, плотнее */
+    .h2{
+      font-size: clamp(36px,5vw,56px);
+      line-height: 1.12;
+      font-weight: 900;
+      letter-spacing: -0.2px;
+      margin-bottom: 28px;
+    }
+    
+    /* 2) Карточки (what / audience / faq) — белые, с мягкой тенью */
+    .card,
+    .aud-item,
+    .faq-item{
+      background: var(--paper);
+      border: 1px solid var(--ring);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-card);
+    }
+    
+    /* 3) Тексты: серый вторичный ближе к макету */
+    .subtitle,
+    .card p,
+    .aud-text span,
+    .faq-body{
+      color: var(--muted);
+    }
+    
+    /* 4) Кнопки — глубокий тёмный градиент и «висячая» тень */
+    .btn.primary{
+      background: linear-gradient(180deg,#1f2430,#0f121a);
+      color:#fff;
+      border:none;
+      box-shadow: var(--shadow-cta);
+    }
+    .btn{
+      transition: transform .18s ease, box-shadow .18s ease, filter .18s ease;
+    }
+    .btn:hover{ transform: translateY(-1px); filter: brightness(1.02); }
+    
+    /* 5) HERO — CTA ниже и чуть массивнее */
+    .cta{
+      top: var(--cta-top);
+      height: 52px;
+      padding: 0 24px;
+      border-radius: 999px;
+      background: linear-gradient(180deg,#1f2430,#0f121a);
+      color:#fff;
+      font-weight: 900;
+      box-shadow: var(--shadow-cta);
+    }
+    
+    /* 6) WHAT: чуть больше воздуха между карточками */
+    .features{ gap: 22px; }
+    
+    /* 7) AUDIENCE — плашка и иконка справа, как в макете */
+    .aud-item{
+      padding: 18px 20px;
+      border-radius: 22px;
+    }
+    .aud-text strong{ font-weight: 900; }
+    .aud-icon{
+      width: 52px; height: 52px;
+      border-radius: 50%;
+      background: #f3f6fb;
+      border: 1px solid var(--ring);
+      font-weight: 900;
+      color: #5f6b7d;
+    }
+    
+    /* 8) PROGRAM — тёмный фон секции + стеклянная карточка */
+    .program{ background:#0d0f14; padding: 80px 0; }
+    .prog-card{
+      position: relative;
+      border-radius: 22px;
+      padding: 18px 18px 120px;
+      color:#e9edf5;
+      background: rgba(255,255,255,.06);
+      border: 1px solid rgba(255,255,255,.14);
+      box-shadow: inset 0 0 0 1px rgba(255,255,255,.04), 0 8px 28px rgba(0,0,0,.35);
+      backdrop-filter: blur(8px);
+    }
+    .prog-card p{ margin: 6px 6px 0; }
+    
+    /* 9) Респонсив поправки (CTA позиция) */
+    @media (max-width: 960px){
+      :root{ --cta-top: 70%; }
+    }
+    @media (max-width: 720px){
+      :root{ --cta-top: 78%; }
+      .cta{ transform: translate(50%,-50%); } /* уже есть в исходниках — оставляем */
+    }
+    
+    /* === WHAT: визуал как в фигме === */
   
-  /* Карточки: большой радиус, мягкая тень, "светлый" бордер и лёгкий внутренний хайлайт */
-  .card{
-    position: relative;
-    border-radius: 28px;
-    padding: 24px 22px 22px;
-    background: #fff;
-    border: 1px solid #E8EDF5;
-    box-shadow:
-      0 10px 20px rgba(23, 27, 41, .06),
-      0 30px 60px rgba(23, 27, 41, .08);
-  }
-  
-  /* Свечение по периметру (еле заметное) */
-  .card::after{
-    content:"";
-    position:absolute; inset:0;
-    border-radius: inherit;
-    pointer-events:none;
-    box-shadow: 0 1px 0 rgba(255,255,255,.9) inset;
-  }
-  
-  /* Небольшой "стеклянный" бликующий кант по верхней кромке */
-  .card::before{
-    content:"";
-    position:absolute; left:10px; right:10px; top:10px; height:14px;
-    border-radius: 20px;
-    background: linear-gradient(180deg, rgba(255,255,255,.55), rgba(255,255,255,0));
-    pointer-events:none;
-    filter: blur(0.2px);
-  }
-  
-  /* Стрелка в левом верхнем углу (как пиктограмма в макете) */
-  .card > .card-arrow::before,
-  .card::marker{ display:none; }
-  .card{
-    --arr-bg:#F4F6FB; --arr-ring:#E8EDF5; --arr-ink:#0E111A;
-  }
-  .card .card-arrow{ position:absolute; left:14px; top:12px; }
-  .card .card-arrow::after{
-    content:"↓";
-    display:inline-flex; align-items:center; justify-content:center;
-    width:22px; height:22px; border-radius:999px;
-    background: var(--arr-bg);
-    border:1px solid var(--arr-ring);
-    color: var(--arr-ink); font-weight:900; font-size:14px; line-height:1;
-    box-shadow: 0 2px 6px rgba(17,20,26,.08);
-  }
-  
-  /* Заголовок/текст в карточке ближе к макету */
-  .card h3{
-    margin: 10px 0 8px;
-    font-size: 20px;
-    font-weight: 900;
-    letter-spacing: -0.2px;
-  }
-  .card p{
-    margin: 0;
-    color: #7D8495;
-    font-size: 15.5px;
-    line-height: 1.55;
-  }
-  
-  /* Подзаголовок под сеткой — серее и тоньше */
-  .subtitle.center{
-    color:#8A93A6;
-    font-weight: 500;
-  }
-  
-  /* Кнопка под блоком — чуть больше и с мягкой тенью */
-  .section .btn.primary{
-    height: 52px; padding: 0 26px; border-radius: 999px;
-    background: linear-gradient(180deg,#1f2430,#0f121a);
-    box-shadow: 0 14px 28px rgba(15,18,26,.22), 0 4px 8px rgba(15,18,26,.12);
-    font-weight: 800;
-  }
-  
-  .card::before {
-    content: "";
-    position: absolute;
-    left: 14px;
-    top: 12px;
-    width: 22px;
-    height: 22px;
-    border-radius: 50%;
-    background: #F4F6FB;
-    border: 1px solid #E8EDF5;
-    box-shadow: 0 2px 6px rgba(17,20,26,.08);
-  
-    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%230E111A' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'><line x1='12' y1='5' x2='12' y2='19'/><polyline points='19 12 12 19 5 12'/></svg>");
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: 12px;
-  }
-
- /* ================= FIGMA OVERRIDES & SECTIONS (part 2) ================ */
-
-/* 0) Tokens override (аккуратный сдвиг под макет) */
-:root{
-    --page:#EEF2F7;
-    --paper:#FFFFFF;
-    --ink:#0E111A;
-    --muted:#8A93A6;
-    --ring:#E8EDF5;
-  
-    --radius:28px;
-    --radius-lg:30px;
-  
-    --shadow-card: 0 10px 20px rgba(23,27,41,.06), 0 30px 60px rgba(23,27,41,.08);
-    --shadow-cta:  0 14px 28px rgba(15,18,26,.22), 0 4px 8px rgba(15,18,26,.12);
-  }
-  
-  /* 1) Заголовки секций — одна каноническая версия */
+  /* Заголовок больше и плотнее */
   .section .h2{
+      font-size: clamp(48px, 7vw, 80px);
+      line-height: 1.05;
+      font-weight: 900;
+      letter-spacing: -0.6px;
+      margin-bottom: 28px;
+    }
+    
+    /* Сетка карточек — равномерные зазоры */
+    .features{
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 28px;
+    }
+    
+    /* Карточки: большой радиус, мягкая тень, "светлый" бордер и лёгкий внутренний хайлайт */
+    .card{
+      position: relative;
+      border-radius: 28px;
+      padding: 24px 22px 22px;
+      background: #fff;
+      border: 1px solid #E8EDF5;
+      box-shadow:
+        0 10px 20px rgba(23, 27, 41, .06),
+        0 30px 60px rgba(23, 27, 41, .08);
+    }
+    
+    /* Свечение по периметру (еле заметное) */
+    .card::after{
+      content:"";
+      position:absolute; inset:0;
+      border-radius: inherit;
+      pointer-events:none;
+      box-shadow: 0 1px 0 rgba(255,255,255,.9) inset;
+    }
+    
+    /* Небольшой "стеклянный" бликующий кант по верхней кромке */
+    .card::before{
+      content:"";
+      position:absolute; left:10px; right:10px; top:10px; height:14px;
+      border-radius: 20px;
+      background: linear-gradient(180deg, rgba(255,255,255,.55), rgba(255,255,255,0));
+      pointer-events:none;
+      filter: blur(0.2px);
+    }
+    
+    /* Стрелка в левом верхнем углу (как пиктограмма в макете) */
+    .card > .card-arrow::before,
+    .card::marker{ display:none; }
+    .card{
+      --arr-bg:#F4F6FB; --arr-ring:#E8EDF5; --arr-ink:#0E111A;
+    }
+    .card .card-arrow{ position:absolute; left:14px; top:12px; }
+    .card .card-arrow::after{
+      content:"↓";
+      display:inline-flex; align-items:center; justify-content:center;
+      width:22px; height:22px; border-radius:999px;
+      background: var(--arr-bg);
+      border:1px solid var(--arr-ring);
+      color: var(--arr-ink); font-weight:900; font-size:14px; line-height:1;
+      box-shadow: 0 2px 6px rgba(17,20,26,.08);
+    }
+    
+    /* Заголовок/текст в карточке ближе к макету */
+    .card h3{
+      margin: 10px 0 8px;
+      font-size: 20px;
+      font-weight: 900;
+      letter-spacing: -0.2px;
+    }
+    .card p{
+      margin: 0;
+      color: #7D8495;
+      font-size: 15.5px;
+      line-height: 1.55;
+    }
+    
+    /* Подзаголовок под сеткой — серее и тоньше */
+    .subtitle.center{
+      color:#8A93A6;
+      font-weight: 500;
+    }
+    
+    /* Кнопка под блоком — чуть больше и с мягкой тенью */
+    .section .btn.primary{
+      height: 52px; padding: 0 26px; border-radius: 999px;
+      background: linear-gradient(180deg,#1f2430,#0f121a);
+      box-shadow: 0 14px 28px rgba(15,18,26,.22), 0 4px 8px rgba(15,18,26,.12);
+      font-weight: 800;
+    }
+    
+    .card::before {
+      content: "";
+      position: absolute;
+      left: 14px;
+      top: 12px;
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background: #F4F6FB;
+      border: 1px solid #E8EDF5;
+      box-shadow: 0 2px 6px rgba(17,20,26,.08);
+    
+      background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%230E111A' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'><line x1='12' y1='5' x2='12' y2='19'/><polyline points='19 12 12 19 5 12'/></svg>");
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: 12px;
+    }
+  
+   /* ================= FIGMA OVERRIDES & SECTIONS (part 2) ================ */
+  
+  /* 0) Tokens override (аккуратный сдвиг под макет) */
+  :root{
+      --page:#EEF2F7;
+      --paper:#FFFFFF;
+      --ink:#0E111A;
+      --muted:#8A93A6;
+      --ring:#E8EDF5;
+    
+      --radius:28px;
+      --radius-lg:30px;
+    
+      --shadow-card: 0 10px 20px rgba(23,27,41,.06), 0 30px 60px rgba(23,27,41,.08);
+      --shadow-cta:  0 14px 28px rgba(15,18,26,.22), 0 4px 8px rgba(15,18,26,.12);
+    }
+    
+    /* 1) Заголовки секций — одна каноническая версия */
+    .section .h2{
+      font-size: clamp(48px, 7vw, 80px);
+      line-height: 1.05;
+      font-weight: 900;
+      letter-spacing: -0.6px;
+      color: var(--ink);
+      margin: 0 0 28px;
+    }
+    
+    /* 2) WHAT (3 карточки) — финальный вид */
+    .features{
+      display:grid;
+      grid-template-columns: repeat(3,1fr);
+      gap:24px;
+      margin-top:28px;
+    }
+    .card{
+      position:relative;
+      border-radius: var(--radius);
+      background: var(--paper);
+      border:1px solid var(--ring);
+      box-shadow: var(--shadow-card);
+      padding:24px 22px 22px;
+    }
+    .card::after{ /* еле заметный внутренний хайлайт */
+      content:""; position:absolute; inset:0; border-radius:inherit; pointer-events:none;
+      box-shadow: 0 1px 0 rgba(255,255,255,.9) inset;
+    }
+    .card h3{
+      margin:10px 0 8px;
+      font-size:20px;
+      font-weight:900;
+      letter-spacing:-.2px;
+      color:var(--ink);
+    }
+    .card p{ margin:0; color:var(--muted); font-size:15.5px; line-height:1.55; }
+    
+    /* Стрелка-иконка в левом верхнем углу карточки */
+    .card{ --arr-bg:#F4F6FB; --arr-ring:#E8EDF5; }
+    .card::before{
+      content:""; position:absolute; left:14px; top:12px; width:22px; height:22px; border-radius:50%;
+      background: var(--arr-bg) url("assets/arrow.svg") center/12px no-repeat;
+      border:1px solid var(--arr-ring);
+      box-shadow: 0 2px 6px rgba(17,20,26,.08);
+    }
+    
+    /* Подпись под сеткой */
+    .subtitle.center{ color:#8A93A6; font-weight:500; }
+    
+    /* 3) CTA-кнопки — градиент и hover */
+    .btn.primary{
+      height:52px; padding:0 26px; border-radius:999px; font-weight:800;
+      background: linear-gradient(180deg,#1f2430,#0f121a);
+      color:#fff; border:none; box-shadow: var(--shadow-cta);
+      transition: transform .18s ease, filter .18s ease;
+    }
+    .btn.primary:hover{ transform:translateY(-1px); filter:brightness(1.02); }
+    
+    /* 4) AUDIENCE — как в макете */
+    .audience{ list-style:none; padding:0; margin:18px 0 0; display:grid; gap:16px; }
+    .aud-item{
+      display:flex; align-items:center; justify-content:space-between; gap:24px;
+      padding:20px; border-radius: var(--radius-lg);
+      background: rgba(255,255,255,.60);
+      border:1px solid var(--ring);
+      box-shadow: 0 2px 6px rgba(17,20,26,.08);
+    }
+    .aud-text strong{ display:block; font-weight:900; color:var(--ink); font-size:20px; letter-spacing:-.2px; }
+    .aud-text span{ display:block; color:var(--muted); font-size:15.5px; margin-top:6px; }
+    .aud-icon{
+      width:56px; height:56px; border-radius:50%;
+      display:flex; align-items:center; justify-content:center;
+      background:#F4F6FB; border:1px solid var(--ring);
+    }
+    
+    /* 5) FAQ */
+    .faq{ max-width:1280px; margin:48px auto 64px; display:grid; gap:8px; }
+    .faq-item{
+      position:relative; overflow:hidden;
+      border-radius:30px;
+      background: rgba(255,255,255,.20);
+      border:1px solid rgba(255,255,255,.30);
+      backdrop-filter: blur(30px); -webkit-backdrop-filter: blur(30px);
+      box-shadow: 0 8px 28px rgba(0,0,0,.12);
+    }
+    .faq-item > summary{
+      list-style:none; cursor:pointer; user-select:none;
+      padding:20px 72px 20px 24px;
+      font-weight:800; font-size:20px; line-height:1.3; color:#0E111A;
+    }
+    .faq-item > summary::-webkit-details-marker{ display:none; }
+    .faq-body{ padding:0 24px 20px 24px; color:#8A93A6; font-size:15.5px; line-height:1.55; }
+    .faq-item::after{
+      content:"+";
+      position:absolute; right:20px; top:18px;
+      width:38px; height:38px; border-radius:40px;
+      display:grid; place-items:center; font-weight:900; color:#0E111A;
+      background: rgba(41,43,49,.05);
+      border:1px solid rgba(255,255,255,.30);
+      box-shadow: 0 6px 16px rgba(0,0,0,.12);
+      backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+    }
+    .faq-item[open]::after{ content:"×"; font-size:18px; }
+    .faq-item[open] .faq-divider{ height:1px; margin:0 24px 16px; background:rgba(255,255,255,.35); }
+    
+    /* 6) REGISTER */
+    .register{ max-width:1440px; margin:80px auto 96px; text-align:center; }
+    .register .h1{
+      font-size:64px; line-height:1.05; font-weight:900; color:#0E111A; margin:0 0 16px;
+    }
+    .register .sub{
+      font-size:32px; line-height:1.25; font-weight:800; color:#0E111A; opacity:.9; margin:0 0 28px;
+    }
+    .cta-register{
+      display:inline-flex; align-items:center; justify-content:center;
+      height:56px; padding:0 28px; border-radius:40px; font-weight:800;
+      color:#fff; text-decoration:none;
+      background: linear-gradient(180deg, #3a3f4a 0%, #1a1d24 100%);
+      border:1px solid rgba(255,255,255,.20);
+      box-shadow: 0 18px 32px rgba(0,0,0,.22), 0 6px 10px rgba(0,0,0,.14);
+      backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+      transition: transform .18s ease, filter .18s ease;
+    }
+    .cta-register:hover{ transform:translateY(-1px); filter:brightness(1.03); }
+    
+  /* === PROGRAM (final, text rows) === */
+  .program{ background:#0E111A; padding:72px 0; }
+  .program .container{ max-width:1280px; padding:0 20px; }
+  
+  .prog-card{
+    position:relative;
+    border-radius:30px;
+    padding:20px;
+    display:flex; flex-direction:column; gap:16px;
+    background:linear-gradient(180deg, rgba(255,255,255,.10), rgba(255,255,255,.04));
+    border:1px solid rgba(255,255,255,.30);
+    box-shadow:0 18px 40px rgba(0,0,0,.35), inset 0 1px 0 rgba(255,255,255,.06);
+    backdrop-filter:blur(20px); -webkit-backdrop-filter:blur(20px);
+    color:#E9EDF5; overflow:hidden;
+  }
+  
+  .prog-card > p:first-child{
+    margin:0; min-height:116px; display:flex; align-items:center;
+    padding:20px; border-radius:30px;
+    background:#292B31CC; border:1px solid rgba(255,255,255,.30);
+    box-shadow: inset 0 1px 0 rgba(255,255,255,.08);
+    color:#F5F7FA; font-weight:800; line-height:1.25;
+  }
+  
+  .prog-row{
+    position:relative;
+    min-height:154px;
+    border-radius:30px;
+    padding:24px 120px 24px 24px;
+    background:linear-gradient(180deg, rgba(255,255,255,.10), rgba(255,255,255,.04));
+    border:1px solid rgba(255,255,255,.30);
+    box-shadow:0 14px 32px rgba(0,0,0,.32), inset 0 1px 0 rgba(255,255,255,.06);
+    backdrop-filter:blur(20px); -webkit-backdrop-filter:blur(20px);
+    display:flex; flex-direction:column; justify-content:center;
+    color:#E9EDF5; overflow:hidden;
+  }
+  .prog-row::after{
+    content:""; position:absolute; right:20px; top:50%; transform:translateY(-50%);
+    width:88.5px; height:88.5px; border-radius:50%;
+    background:#292B31; opacity:.10; filter: blur(8px);
+  }
+  .prog-row h3{ margin:0 0 8px; font-size:20px; font-weight:800; color:#fff; }
+  .prog-row p{ margin:0; font-size:15.5px; color:#D8DEE9; }
+  
+  @media (max-width:720px){
+    .prog-card{ padding:16px; border-radius:22px; }
+    .prog-card > p:first-child{ min-height:100px; padding:16px; border-radius:22px; }
+    .prog-row{ min-height:120px; padding:16px 96px 16px 16px; border-radius:22px; }
+    .prog-row::after{ width:72px; height:72px; }
+  }
+  /* === QUESTIONS (FAQ) — размеры и стиль как в макете === */
+  .questions{
+      background: linear-gradient(180deg,#EFF3F8 0%, #F6F8FB 60%, #EFF3F8 100%);
+      padding: 80px 0;
+    }
+    .questions .container{ max-width:1280px; padding:0 20px; }
+    
+    /* Заголовок 1440×Hug, центр, жирный */
+    .questions .h2{
+      margin: 0 0 40px;
+      text-align: center;
+      font-size: 64px;
+      line-height: 1.05;
+      font-weight: 900;
+      letter-spacing: -0.4px;
+    }
+    
+    /* Стеклянные плашки-аккордеоны */
+    .faq{ display:flex; flex-direction:column; gap:16px; }
+    
+    .faq-item{
+      border-radius: 30px;
+      background: linear-gradient(180deg, rgba(255,255,255,.70), rgba(255,255,255,.30));
+      border: 1px solid rgba(0,0,0,.08);
+      box-shadow: 0 14px 32px rgba(0,0,0,.08), inset 0 1px 0 rgba(255,255,255,.40);
+      overflow: hidden;
+    }
+    
+    /* Заголовок вопроса — крупный, как на визуале */
+    .faq-item > summary{
+      list-style: none; cursor: pointer; user-select: none;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 24px 28px;
+      font-size: 28px;               /* ↑ было 20px */
+      font-weight: 900;
+      color: #1B1D21;
+    }
+    .faq-item > summary::-webkit-details-marker{ display:none; }
+    
+    /* Кнопка + / × справа (38×38) */
+    .faq-item > summary::after{
+      content: "+"; flex: 0 0 38px; width:38px; height:38px; border-radius:40px;
+      display:grid; place-items:center; font-size:26px; font-weight:700; line-height:1;
+      background: rgba(41,43,49,.05);
+      border:1px solid rgba(255,255,255,.30);
+      box-shadow: 0 6px 16px rgba(0,0,0,.12);
+      backdrop-filter: blur(12px);
+      color:#1B1D21;
+    }
+    .faq-item[open] > summary::after{ content:"×"; font-size:20px; transform: rotate(90deg); }
+    
+    .faq-divider{ height:1px; margin: 0 28px; background: rgba(0,0,0,.08); }
+    .faq-body{
+      padding: 18px 28px 24px;
+      font-size: 16px; line-height: 1.55; color:#333;
+    }
+    
+    /* === REGISTRATION — размеры как в макете === */
+    #registration{ padding: 80px 0 96px; text-align:center; }
+    
+    .registration h2 {
+      font-family: "YS Geo", sans-serif;
+      font-weight: 500; /* Medium */
+      font-size: 64px;
+      line-height: 100%;
+      letter-spacing: 0;
+      text-align: center;
+      color: #000; /* чёрный */
+    }  
+    
+    #registration .subtitle{
+      margin: 0 0 28px;
+      font-size: 28px;               /* ближе к фигме */
+      line-height: 1.25;
+      font-weight: 800;
+      color:#0E111A; opacity:.9;
+    }
+    
+    /* Кнопка 336×48, стеклянная тёмная */
+    #registration .btn{
+      display:inline-flex; align-items:center; justify-content:center;
+      width:336px; height:48px; border-radius:15px;
+      font-weight:800; color:#fff; text-decoration:none;
+      background: linear-gradient(180deg,#3a3f4a 0%, #1a1d24 100%);
+      border:1px solid rgba(255,255,255,.20);
+      box-shadow: 0 18px 32px rgba(0,0,0,.22), 0 6px 10px rgba(0,0,0,.14);
+      backdrop-filter: blur(8px);
+      transition: transform .18s ease, filter .18s ease;
+    }
+    #registration .btn:hover{ transform: translateY(-1px); filter: brightness(1.03); }
+    
+    /* адаптив под 720px */
+    @media (max-width:720px){
+      .questions .h2{ font-size: 42px; margin-bottom: 28px; }
+      .faq-item > summary{ font-size: 20px; padding:20px; }
+      .faq-body{ padding:16px 20px 20px; }
+      #registration .h2{ font-size: 42px; }
+      #registration .subtitle{ font-size: 22px; }
+      #registration .btn{ width: 280px; }
+    }
+    /* === Глобальный фон страницы === */
+  body {
+      background: linear-gradient(180deg, #EEF2F7 0%, #F6F8FB 100%);
+    }
+    
+    /* секции на прозрачном фоне */
+    .questions {
+      background: transparent;
+    }
+    .registration {
+      background: transparent;
+    }
+    
+  
+  /* ⛔️ выключаем общий оверлей/блюр (если он есть) */
+  .page-gradient{ display:none !important; }
+  
+  /* секция PROGRAM остается тёмной */
+  .program{ background:#0E111A; position:relative; }
+  .program .container{ position:relative; z-index:1; }
+  /* мягкий переход к светлой зоне (вниз) */
+  .program::after{
+    content:""; position:absolute; left:0; right:0; bottom:-1px; height:220px;
+    pointer-events:none;
+    background:linear-gradient(180deg, rgba(14,17,26,1) 0%, rgba(245,247,250,1) 100%);
+    z-index:0;
+  }
+  
+  /* QUESTIONS — светлая секция, фон без блюра */
+  .questions{ background:#F5F7FA; position:relative; padding:72px 0; }
+  .questions .container{ position:relative; z-index:1; }
+  /* «подтягиваем» светлый фон сверху, без перекрытия текста */
+  .questions::before{
+    content:""; position:absolute; left:0; right:0; top:-220px; height:220px;
+    pointer-events:none;
+    background:linear-gradient(180deg, rgba(245,247,250,0) 0%, rgba(245,247,250,1) 100%);
+    z-index:0;
+  }
+  
+  /* REGISTRATION — тот же светлый, можно чуть усилить градиент */
+  .registration{
+    position:relative; padding:80px 0 96px;
+    background:linear-gradient(180deg,#F5F7FA 0%, #EEF2F7 60%, #F5F7FA 100%);
+  }
+  .registration .container, .registration h2, .registration .subtitle{ position:relative; z-index:1; }
+    
+  /* === HARD FIX: Program без блюра и без старого оверлея === */
+  .program .prog-blur{ display:none !important; }
+  
+  .program .prog-card,
+  .program .prog-row{
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    background: linear-gradient(180deg, rgba(255,255,255,.10), rgba(255,255,255,.04)) !important;
+    box-shadow: 0 18px 40px rgba(0,0,0,.35), inset 0 1px 0 rgba(255,255,255,.06) !important;
+  }
+  
+  /* Слои: тёмная program снизу, светлые секции сверху */
+  .program{ position:relative; z-index:0 !important; }
+  .questions, .registration{ position:relative; z-index:1 !important; }
+  
+  /* Светлый фон секций (если где-то переопределялся) */
+  .questions{ background:#F5F7FA !important; }
+  .registration{
+    background:linear-gradient(180deg,#F5F7FA 0%, #EEF2F7 60%, #F5F7FA 100%) !important;
+  }
+  /* --- Fix: мягкий стык PROGRAM → QUESTIONS, без наезда --- */
+  
+  /* PROGRAM: тёмный блок + прозрачный «хвост» вниз, под содержимым */
+  .program{
+      position: relative;
+      z-index: 0;            /* базовый слой */
+    }
+    .program::after{
+      content:"";
+      position:absolute;
+      left:0; right:0; bottom:-1px;
+      height:200px;
+      pointer-events:none;
+      /* ВАЖНО: уходим в прозрачность, не рисуем светлый цвет поверх */
+      background: linear-gradient(180deg, rgba(14,17,26,1) 0%, rgba(14,17,26,0) 100%);
+      z-index:-1;            /* уходим ПОД соседние секции */
+    }
+    
+    /* QUESTIONS: светлая секция поверх + «подтянуть» светлый фон вверх */
+    .questions{
+      position:relative;
+      z-index:1;             /* выше program */
+      background:#F5F7FA;
+    }
+    .questions .container{ position:relative; z-index:2; }
+    .questions::before{
+      content:"";
+      position:absolute;
+      left:0; right:0; top:-140px;
+      height:140px;
+      pointer-events:none;
+      background: linear-gradient(180deg, rgba(245,247,250,0) 0%, rgba(245,247,250,1) 100%);
+      z-index:1;             /* под контентом, но над хвостом program */
+    }
+    
+  /* === ABOUT (Для кого конференция) ====================== */
+  .about{ padding:80px 0; background:transparent; }
+  .about .container{ max-width:1280px; padding:0 20px; }
+  
+  /* заголовок — у нас уже есть .section .h2, просто центрнем */
+  .about .h2{ margin:0 0 40px; text-align:center; }
+  
+  /* сетка списка */
+  .about .grid .main{
+    display:flex;
+    flex-direction:column;
+    gap:12px;                 /* в макете маленький вертикальный шаг */
+  }
+  
+  /* карточка строки */
+  .about .grid .container{
+    position:relative;
+    border-radius:30px;
+    padding:20px 96px 20px 24px;     /* справа место под круг 63px */
+    background:linear-gradient(180deg,rgba(255,255,255,.70),rgba(255,255,255,.30));
+    border:1px solid rgba(0,0,0,.08);
+    box-shadow:0 14px 32px rgba(0,0,0,.08), inset 0 1px 0 rgba(255,255,255,.40);
+  }
+  
+  /* внутренняя рамка (Frame 2131327240) — просто блочный контейнер */
+  .about .grid .container .frame{ display:block; }
+  
+  /* заголовок и подзаголовок (YS Geo) */
+  .about .grid .container .title{
+    margin:0 0 6px;
+    font-family:"YS Geo",system-ui,sans-serif;
+    font-weight:500;                  /* Medium */
+    font-size:32px;
+    line-height:1.2;                  /* 120% */
+    letter-spacing:-0.035em;          /* ~ -3.5% */
+    color:#0E111A;
+  }
+  .about .grid .container .sub{
+    margin:0;
+    font-family:"YS Geo",system-ui,sans-serif;
+    font-weight:400;                  /* Regular */
+    font-size:18px;
+    line-height:1.2;                  /* 120% */
+    letter-spacing:-0.02em;           /* ~ -2% */
+    color:#0E111A; opacity:.8;
+  }
+  
+  /* правый круг с иконкой (Subtract/Exclude), 63×63, X≈правый, Y=20 */
+  .about .grid .container .icon{
+    position:absolute; right:20px; top:20px;
+    width:63px; height:63px; border-radius:50%;
+    display:grid; place-items:center;
+    background:#F4F6FB;
+    border:1px solid #E8EDF5;
+    box-shadow:0 2px 6px rgba(17,20,26,.08);
+  }
+  .about .grid .container .icon svg{ width:28px; height:28px; fill:#0E111A; opacity:.6; }
+  
+  /* мобильная подстройка */
+  @media (max-width:720px){
+    .about{ padding:48px 0; }
+    .about .h2{ font-size:42px; margin-bottom:28px; }
+    .about .grid .container{ border-radius:22px; padding:18px 84px 18px 18px; }
+    .about .grid .container .title{ font-size:22px; }
+    .about .grid .container .sub{ font-size:15px; }
+    .about .grid .container .icon{ width:56px; height:56px; }
+  }
+  
+  /* === Универсальный вертикальный ритм для секций === */
+  section{
+      padding:80px 0;
+      position:relative;
+    }
+    section .container{
+      max-width:1280px;
+      padding:0 20px;
+      margin:0 auto;
+      position:relative;
+      z-index:1;
+    }
+  /* Временно скрыть все иконки в блоке about */
+  .about .container svg,
+  .about .container .aud-icon,
+  .about .container .exclude,
+  .about .container .subtract {
+    display: none !important;
+  }
+  
+  /* ABOUT — сетка 2×2 */
+  .about-list {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+      margin-top: 40px;
+    }
+    
+    .about-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 24px;
+      border-radius: 28px;
+      background: rgba(255,255,255,0.6);
+      border: 1px solid var(--ring);
+      box-shadow: 0 2px 6px rgba(17,20,26,0.08);
+    }
+    
+    .about-text h3 {
+      margin: 0 0 6px;
+      font-size: 20px;
+      font-weight: 900;
+      letter-spacing: -0.2px;
+      color: var(--ink);
+    }
+    
+    .about-text p {
+      margin: 0;
+      font-size: 15.5px;
+      line-height: 1.55;
+      color: var(--muted);
+    }
+    
+    .about-icon {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #F4F6FB;
+      border: 1px solid var(--ring);
+    }
+    /* === ABOUT — как в визуале (1 колонка, стеклянные плашки) === */
+  .about { padding: 80px 0; }
+  .about .container { max-width: 1280px; padding: 0 20px; }
+  
+  .about .h2 {                /* заголовок блока */
+    margin: 0 0 28px;
+    text-align: center;
     font-size: clamp(48px, 7vw, 80px);
     line-height: 1.05;
     font-weight: 900;
     letter-spacing: -0.6px;
-    color: var(--ink);
-    margin: 0 0 28px;
   }
   
-  /* 2) WHAT (3 карточки) — финальный вид */
-  .features{
-    display:grid;
-    grid-template-columns: repeat(3,1fr);
-    gap:24px;
-    margin-top:28px;
-  }
-  .card{
-    position:relative;
-    border-radius: var(--radius);
-    background: var(--paper);
-    border:1px solid var(--ring);
-    box-shadow: var(--shadow-card);
-    padding:24px 22px 22px;
-  }
-  .card::after{ /* еле заметный внутренний хайлайт */
-    content:""; position:absolute; inset:0; border-radius:inherit; pointer-events:none;
-    box-shadow: 0 1px 0 rgba(255,255,255,.9) inset;
-  }
-  .card h3{
-    margin:10px 0 8px;
-    font-size:20px;
-    font-weight:900;
-    letter-spacing:-.2px;
-    color:var(--ink);
-  }
-  .card p{ margin:0; color:var(--muted); font-size:15.5px; line-height:1.55; }
-  
-  /* Стрелка-иконка в левом верхнем углу карточки */
-  .card{ --arr-bg:#F4F6FB; --arr-ring:#E8EDF5; }
-  .card::before{
-    content:""; position:absolute; left:14px; top:12px; width:22px; height:22px; border-radius:50%;
-    background: var(--arr-bg) url("assets/arrow.svg") center/12px no-repeat;
-    border:1px solid var(--arr-ring);
-    box-shadow: 0 2px 6px rgba(17,20,26,.08);
+  /* список: одна колонка, маленький вертикальный шаг */
+  .about-list{
+    display: grid;
+    grid-template-columns: 1fr;   /* ← вместо 2 колонок */
+    gap: 12px;
   }
   
-  /* Подпись под сеткой */
-  .subtitle.center{ color:#8A93A6; font-weight:500; }
-  
-  /* 3) CTA-кнопки — градиент и hover */
-  .btn.primary{
-    height:52px; padding:0 26px; border-radius:999px; font-weight:800;
-    background: linear-gradient(180deg,#1f2430,#0f121a);
-    color:#fff; border:none; box-shadow: var(--shadow-cta);
-    transition: transform .18s ease, filter .18s ease;
-  }
-  .btn.primary:hover{ transform:translateY(-1px); filter:brightness(1.02); }
-  
-  /* 4) AUDIENCE — как в макете */
-  .audience{ list-style:none; padding:0; margin:18px 0 0; display:grid; gap:16px; }
-  .aud-item{
-    display:flex; align-items:center; justify-content:space-between; gap:24px;
-    padding:20px; border-radius: var(--radius-lg);
-    background: rgba(255,255,255,.60);
-    border:1px solid var(--ring);
-    box-shadow: 0 2px 6px rgba(17,20,26,.08);
-  }
-  .aud-text strong{ display:block; font-weight:900; color:var(--ink); font-size:20px; letter-spacing:-.2px; }
-  .aud-text span{ display:block; color:var(--muted); font-size:15.5px; margin-top:6px; }
-  .aud-icon{
-    width:56px; height:56px; border-radius:50%;
-    display:flex; align-items:center; justify-content:center;
-    background:#F4F6FB; border:1px solid var(--ring);
-  }
-  
-  /* 5) FAQ */
-  .faq{ max-width:1280px; margin:48px auto 64px; display:grid; gap:8px; }
-  .faq-item{
-    position:relative; overflow:hidden;
-    border-radius:30px;
-    background: rgba(255,255,255,.20);
-    border:1px solid rgba(255,255,255,.30);
-    backdrop-filter: blur(30px); -webkit-backdrop-filter: blur(30px);
-    box-shadow: 0 8px 28px rgba(0,0,0,.12);
-  }
-  .faq-item > summary{
-    list-style:none; cursor:pointer; user-select:none;
-    padding:20px 72px 20px 24px;
-    font-weight:800; font-size:20px; line-height:1.3; color:#0E111A;
-  }
-  .faq-item > summary::-webkit-details-marker{ display:none; }
-  .faq-body{ padding:0 24px 20px 24px; color:#8A93A6; font-size:15.5px; line-height:1.55; }
-  .faq-item::after{
-    content:"+";
-    position:absolute; right:20px; top:18px;
-    width:38px; height:38px; border-radius:40px;
-    display:grid; place-items:center; font-weight:900; color:#0E111A;
-    background: rgba(41,43,49,.05);
-    border:1px solid rgba(255,255,255,.30);
-    box-shadow: 0 6px 16px rgba(0,0,0,.12);
-    backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
-  }
-  .faq-item[open]::after{ content:"×"; font-size:18px; }
-  .faq-item[open] .faq-divider{ height:1px; margin:0 24px 16px; background:rgba(255,255,255,.35); }
-  
-  /* 6) REGISTER */
-  .register{ max-width:1440px; margin:80px auto 96px; text-align:center; }
-  .register .h1{
-    font-size:64px; line-height:1.05; font-weight:900; color:#0E111A; margin:0 0 16px;
-  }
-  .register .sub{
-    font-size:32px; line-height:1.25; font-weight:800; color:#0E111A; opacity:.9; margin:0 0 28px;
-  }
-  .cta-register{
-    display:inline-flex; align-items:center; justify-content:center;
-    height:56px; padding:0 28px; border-radius:40px; font-weight:800;
-    color:#fff; text-decoration:none;
-    background: linear-gradient(180deg, #3a3f4a 0%, #1a1d24 100%);
-    border:1px solid rgba(255,255,255,.20);
-    box-shadow: 0 18px 32px rgba(0,0,0,.22), 0 6px 10px rgba(0,0,0,.14);
-    backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
-    transition: transform .18s ease, filter .18s ease;
-  }
-  .cta-register:hover{ transform:translateY(-1px); filter:brightness(1.03); }
-  
-/* === PROGRAM (final, text rows) === */
-.program{ background:#0E111A; padding:72px 0; }
-.program .container{ max-width:1280px; padding:0 20px; }
-
-.prog-card{
-  position:relative;
-  border-radius:30px;
-  padding:20px;
-  display:flex; flex-direction:column; gap:16px;
-  background:linear-gradient(180deg, rgba(255,255,255,.10), rgba(255,255,255,.04));
-  border:1px solid rgba(255,255,255,.30);
-  box-shadow:0 18px 40px rgba(0,0,0,.35), inset 0 1px 0 rgba(255,255,255,.06);
-  backdrop-filter:blur(20px); -webkit-backdrop-filter:blur(20px);
-  color:#E9EDF5; overflow:hidden;
-}
-
-.prog-card > p:first-child{
-  margin:0; min-height:116px; display:flex; align-items:center;
-  padding:20px; border-radius:30px;
-  background:#292B31CC; border:1px solid rgba(255,255,255,.30);
-  box-shadow: inset 0 1px 0 rgba(255,255,255,.08);
-  color:#F5F7FA; font-weight:800; line-height:1.25;
-}
-
-.prog-row{
-  position:relative;
-  min-height:154px;
-  border-radius:30px;
-  padding:24px 120px 24px 24px;
-  background:linear-gradient(180deg, rgba(255,255,255,.10), rgba(255,255,255,.04));
-  border:1px solid rgba(255,255,255,.30);
-  box-shadow:0 14px 32px rgba(0,0,0,.32), inset 0 1px 0 rgba(255,255,255,.06);
-  backdrop-filter:blur(20px); -webkit-backdrop-filter:blur(20px);
-  display:flex; flex-direction:column; justify-content:center;
-  color:#E9EDF5; overflow:hidden;
-}
-.prog-row::after{
-  content:""; position:absolute; right:20px; top:50%; transform:translateY(-50%);
-  width:88.5px; height:88.5px; border-radius:50%;
-  background:#292B31; opacity:.10; filter: blur(8px);
-}
-.prog-row h3{ margin:0 0 8px; font-size:20px; font-weight:800; color:#fff; }
-.prog-row p{ margin:0; font-size:15.5px; color:#D8DEE9; }
-
-@media (max-width:720px){
-  .prog-card{ padding:16px; border-radius:22px; }
-  .prog-card > p:first-child{ min-height:100px; padding:16px; border-radius:22px; }
-  .prog-row{ min-height:120px; padding:16px 96px 16px 16px; border-radius:22px; }
-  .prog-row::after{ width:72px; height:72px; }
-}
-/* === QUESTIONS (FAQ) — размеры и стиль как в макете === */
-.questions{
-    background: linear-gradient(180deg,#EFF3F8 0%, #F6F8FB 60%, #EFF3F8 100%);
-    padding: 80px 0;
-  }
-  .questions .container{ max-width:1280px; padding:0 20px; }
-  
-  /* Заголовок 1440×Hug, центр, жирный */
-  .questions .h2{
-    margin: 0 0 40px;
-    text-align: center;
-    font-size: 64px;
-    line-height: 1.05;
-    font-weight: 900;
-    letter-spacing: -0.4px;
-  }
-  
-  /* Стеклянные плашки-аккордеоны */
-  .faq{ display:flex; flex-direction:column; gap:16px; }
-  
-  .faq-item{
+  /* карточка */
+  .about-item{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    padding: 20px 96px 20px 24px;  /* справа место под круг 63px */
     border-radius: 30px;
     background: linear-gradient(180deg, rgba(255,255,255,.70), rgba(255,255,255,.30));
     border: 1px solid rgba(0,0,0,.08);
     box-shadow: 0 14px 32px rgba(0,0,0,.08), inset 0 1px 0 rgba(255,255,255,.40);
-    overflow: hidden;
   }
   
-  /* Заголовок вопроса — крупный, как на визуале */
-  .faq-item > summary{
-    list-style: none; cursor: pointer; user-select: none;
-    display: flex; align-items: center; justify-content: space-between;
-    padding: 24px 28px;
-    font-size: 28px;               /* ↑ было 20px */
-    font-weight: 900;
-    color: #1B1D21;
-  }
-  .faq-item > summary::-webkit-details-marker{ display:none; }
-  
-  /* Кнопка + / × справа (38×38) */
-  .faq-item > summary::after{
-    content: "+"; flex: 0 0 38px; width:38px; height:38px; border-radius:40px;
-    display:grid; place-items:center; font-size:26px; font-weight:700; line-height:1;
-    background: rgba(41,43,49,.05);
-    border:1px solid rgba(255,255,255,.30);
-    box-shadow: 0 6px 16px rgba(0,0,0,.12);
-    backdrop-filter: blur(12px);
-    color:#1B1D21;
-  }
-  .faq-item[open] > summary::after{ content:"×"; font-size:20px; transform: rotate(90deg); }
-  
-  .faq-divider{ height:1px; margin: 0 28px; background: rgba(0,0,0,.08); }
-  .faq-body{
-    padding: 18px 28px 24px;
-    font-size: 16px; line-height: 1.55; color:#333;
-  }
-  
-  /* === REGISTRATION — размеры как в макете === */
-  #registration{ padding: 80px 0 96px; text-align:center; }
-  
-  .registration h2 {
-    font-family: "YS Geo", sans-serif;
-    font-weight: 500; /* Medium */
-    font-size: 64px;
-    line-height: 100%;
-    letter-spacing: 0;
-    text-align: center;
-    color: #000; /* чёрный */
-  }  
-  
-  #registration .subtitle{
-    margin: 0 0 28px;
-    font-size: 28px;               /* ближе к фигме */
-    line-height: 1.25;
-    font-weight: 800;
-    color:#0E111A; opacity:.9;
-  }
-  
-  /* Кнопка 336×48, стеклянная тёмная */
-  #registration .btn{
-    display:inline-flex; align-items:center; justify-content:center;
-    width:336px; height:48px; border-radius:15px;
-    font-weight:800; color:#fff; text-decoration:none;
-    background: linear-gradient(180deg,#3a3f4a 0%, #1a1d24 100%);
-    border:1px solid rgba(255,255,255,.20);
-    box-shadow: 0 18px 32px rgba(0,0,0,.22), 0 6px 10px rgba(0,0,0,.14);
-    backdrop-filter: blur(8px);
-    transition: transform .18s ease, filter .18s ease;
-  }
-  #registration .btn:hover{ transform: translateY(-1px); filter: brightness(1.03); }
-  
-  /* адаптив под 720px */
-  @media (max-width:720px){
-    .questions .h2{ font-size: 42px; margin-bottom: 28px; }
-    .faq-item > summary{ font-size: 20px; padding:20px; }
-    .faq-body{ padding:16px 20px 20px; }
-    #registration .h2{ font-size: 42px; }
-    #registration .subtitle{ font-size: 22px; }
-    #registration .btn{ width: 280px; }
-  }
-  /* === Глобальный фон страницы === */
-body {
-    background: linear-gradient(180deg, #EEF2F7 0%, #F6F8FB 100%);
-  }
-  
-  /* секции на прозрачном фоне */
-  .questions {
-    background: transparent;
-  }
-  .registration {
-    background: transparent;
-  }
-  
-
-/* ⛔️ выключаем общий оверлей/блюр (если он есть) */
-.page-gradient{ display:none !important; }
-
-/* секция PROGRAM остается тёмной */
-.program{ background:#0E111A; position:relative; }
-.program .container{ position:relative; z-index:1; }
-/* мягкий переход к светлой зоне (вниз) */
-.program::after{
-  content:""; position:absolute; left:0; right:0; bottom:-1px; height:220px;
-  pointer-events:none;
-  background:linear-gradient(180deg, rgba(14,17,26,1) 0%, rgba(245,247,250,1) 100%);
-  z-index:0;
-}
-
-/* QUESTIONS — светлая секция, фон без блюра */
-.questions{ background:#F5F7FA; position:relative; padding:72px 0; }
-.questions .container{ position:relative; z-index:1; }
-/* «подтягиваем» светлый фон сверху, без перекрытия текста */
-.questions::before{
-  content:""; position:absolute; left:0; right:0; top:-220px; height:220px;
-  pointer-events:none;
-  background:linear-gradient(180deg, rgba(245,247,250,0) 0%, rgba(245,247,250,1) 100%);
-  z-index:0;
-}
-
-/* REGISTRATION — тот же светлый, можно чуть усилить градиент */
-.registration{
-  position:relative; padding:80px 0 96px;
-  background:linear-gradient(180deg,#F5F7FA 0%, #EEF2F7 60%, #F5F7FA 100%);
-}
-.registration .container, .registration h2, .registration .subtitle{ position:relative; z-index:1; }
-  
-/* === HARD FIX: Program без блюра и без старого оверлея === */
-.program .prog-blur{ display:none !important; }
-
-.program .prog-card,
-.program .prog-row{
-  backdrop-filter: none !important;
-  -webkit-backdrop-filter: none !important;
-  background: linear-gradient(180deg, rgba(255,255,255,.10), rgba(255,255,255,.04)) !important;
-  box-shadow: 0 18px 40px rgba(0,0,0,.35), inset 0 1px 0 rgba(255,255,255,.06) !important;
-}
-
-/* Слои: тёмная program снизу, светлые секции сверху */
-.program{ position:relative; z-index:0 !important; }
-.questions, .registration{ position:relative; z-index:1 !important; }
-
-/* Светлый фон секций (если где-то переопределялся) */
-.questions{ background:#F5F7FA !important; }
-.registration{
-  background:linear-gradient(180deg,#F5F7FA 0%, #EEF2F7 60%, #F5F7FA 100%) !important;
-}
-/* --- Fix: мягкий стык PROGRAM → QUESTIONS, без наезда --- */
-
-/* PROGRAM: тёмный блок + прозрачный «хвост» вниз, под содержимым */
-.program{
-    position: relative;
-    z-index: 0;            /* базовый слой */
-  }
-  .program::after{
-    content:"";
-    position:absolute;
-    left:0; right:0; bottom:-1px;
-    height:200px;
-    pointer-events:none;
-    /* ВАЖНО: уходим в прозрачность, не рисуем светлый цвет поверх */
-    background: linear-gradient(180deg, rgba(14,17,26,1) 0%, rgba(14,17,26,0) 100%);
-    z-index:-1;            /* уходим ПОД соседние секции */
-  }
-  
-  /* QUESTIONS: светлая секция поверх + «подтянуть» светлый фон вверх */
-  .questions{
-    position:relative;
-    z-index:1;             /* выше program */
-    background:#F5F7FA;
-  }
-  .questions .container{ position:relative; z-index:2; }
-  .questions::before{
-    content:"";
-    position:absolute;
-    left:0; right:0; top:-140px;
-    height:140px;
-    pointer-events:none;
-    background: linear-gradient(180deg, rgba(245,247,250,0) 0%, rgba(245,247,250,1) 100%);
-    z-index:1;             /* под контентом, но над хвостом program */
-  }
-  
-/* === ABOUT (Для кого конференция) ====================== */
-.about{ padding:80px 0; background:transparent; }
-.about .container{ max-width:1280px; padding:0 20px; }
-
-/* заголовок — у нас уже есть .section .h2, просто центрнем */
-.about .h2{ margin:0 0 40px; text-align:center; }
-
-/* сетка списка */
-.about .grid .main{
-  display:flex;
-  flex-direction:column;
-  gap:12px;                 /* в макете маленький вертикальный шаг */
-}
-
-/* карточка строки */
-.about .grid .container{
-  position:relative;
-  border-radius:30px;
-  padding:20px 96px 20px 24px;     /* справа место под круг 63px */
-  background:linear-gradient(180deg,rgba(255,255,255,.70),rgba(255,255,255,.30));
-  border:1px solid rgba(0,0,0,.08);
-  box-shadow:0 14px 32px rgba(0,0,0,.08), inset 0 1px 0 rgba(255,255,255,.40);
-}
-
-/* внутренняя рамка (Frame 2131327240) — просто блочный контейнер */
-.about .grid .container .frame{ display:block; }
-
-/* заголовок и подзаголовок (YS Geo) */
-.about .grid .container .title{
-  margin:0 0 6px;
-  font-family:"YS Geo",system-ui,sans-serif;
-  font-weight:500;                  /* Medium */
-  font-size:32px;
-  line-height:1.2;                  /* 120% */
-  letter-spacing:-0.035em;          /* ~ -3.5% */
-  color:#0E111A;
-}
-.about .grid .container .sub{
-  margin:0;
-  font-family:"YS Geo",system-ui,sans-serif;
-  font-weight:400;                  /* Regular */
-  font-size:18px;
-  line-height:1.2;                  /* 120% */
-  letter-spacing:-0.02em;           /* ~ -2% */
-  color:#0E111A; opacity:.8;
-}
-
-/* правый круг с иконкой (Subtract/Exclude), 63×63, X≈правый, Y=20 */
-.about .grid .container .icon{
-  position:absolute; right:20px; top:20px;
-  width:63px; height:63px; border-radius:50%;
-  display:grid; place-items:center;
-  background:#F4F6FB;
-  border:1px solid #E8EDF5;
-  box-shadow:0 2px 6px rgba(17,20,26,.08);
-}
-.about .grid .container .icon svg{ width:28px; height:28px; fill:#0E111A; opacity:.6; }
-
-/* мобильная подстройка */
-@media (max-width:720px){
-  .about{ padding:48px 0; }
-  .about .h2{ font-size:42px; margin-bottom:28px; }
-  .about .grid .container{ border-radius:22px; padding:18px 84px 18px 18px; }
-  .about .grid .container .title{ font-size:22px; }
-  .about .grid .container .sub{ font-size:15px; }
-  .about .grid .container .icon{ width:56px; height:56px; }
-}
-
-/* === Универсальный вертикальный ритм для секций === */
-section{
-    padding:80px 0;
-    position:relative;
-  }
-  section .container{
-    max-width:1280px;
-    padding:0 20px;
-    margin:0 auto;
-    position:relative;
-    z-index:1;
-  }
-/* Временно скрыть все иконки в блоке about */
-.about .container svg,
-.about .container .aud-icon,
-.about .container .exclude,
-.about .container .subtract {
-  display: none !important;
-}
-
-/* ABOUT — сетка 2×2 */
-.about-list {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 24px;
-    margin-top: 40px;
-  }
-  
-  .about-item {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 24px;
-    border-radius: 28px;
-    background: rgba(255,255,255,0.6);
-    border: 1px solid var(--ring);
-    box-shadow: 0 2px 6px rgba(17,20,26,0.08);
-  }
-  
-  .about-text h3 {
+  /* текст внутри карточки */
+  .about-text h3{
     margin: 0 0 6px;
-    font-size: 20px;
-    font-weight: 900;
-    letter-spacing: -0.2px;
-    color: var(--ink);
+    font-family: "YS Geo", system-ui, sans-serif;
+    font-weight: 500;              /* Medium */
+    font-size: 32px;
+    line-height: 1.2;              /* 120% */
+    letter-spacing: -0.035em;      /* ~ -3.5% */
+    color: #0E111A;
   }
-  
-  .about-text p {
+  .about-text p{
     margin: 0;
-    font-size: 15.5px;
-    line-height: 1.55;
-    color: var(--muted);
+    font-family: "YS Geo", system-ui, sans-serif;
+    font-weight: 400;              /* Regular */
+    font-size: 18px;
+    line-height: 1.2;              /* 120% */
+    letter-spacing: -0.02em;       /* ~ -2% */
+    color: #0E111A;
+    opacity: .8;
   }
   
-  .about-icon {
-    width: 56px;
-    height: 56px;
+  /* правый круг с иконкой (63×63) */
+  .about-icon{
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    width: 63px;
+    height: 63px;
     border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    display: grid;
+    place-items: center;
     background: #F4F6FB;
-    border: 1px solid var(--ring);
+    border: 1px solid #E8EDF5;
+    box-shadow: 0 2px 6px rgba(17,20,26,.08);
   }
-  /* === ABOUT — как в визуале (1 колонка, стеклянные плашки) === */
-.about { padding: 80px 0; }
-.about .container { max-width: 1280px; padding: 0 20px; }
-
-.about .h2 {                /* заголовок блока */
-  margin: 0 0 28px;
-  text-align: center;
-  font-size: clamp(48px, 7vw, 80px);
-  line-height: 1.05;
-  font-weight: 900;
-  letter-spacing: -0.6px;
-}
-
-/* список: одна колонка, маленький вертикальный шаг */
-.about-list{
-  display: grid;
-  grid-template-columns: 1fr;   /* ← вместо 2 колонок */
-  gap: 12px;
-}
-
-/* карточка */
-.about-item{
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 24px;
-  padding: 20px 96px 20px 24px;  /* справа место под круг 63px */
-  border-radius: 30px;
-  background: linear-gradient(180deg, rgba(255,255,255,.70), rgba(255,255,255,.30));
-  border: 1px solid rgba(0,0,0,.08);
-  box-shadow: 0 14px 32px rgba(0,0,0,.08), inset 0 1px 0 rgba(255,255,255,.40);
-}
-
-/* текст внутри карточки */
-.about-text h3{
-  margin: 0 0 6px;
-  font-family: "YS Geo", system-ui, sans-serif;
-  font-weight: 500;              /* Medium */
-  font-size: 32px;
-  line-height: 1.2;              /* 120% */
-  letter-spacing: -0.035em;      /* ~ -3.5% */
-  color: #0E111A;
-}
-.about-text p{
-  margin: 0;
-  font-family: "YS Geo", system-ui, sans-serif;
-  font-weight: 400;              /* Regular */
-  font-size: 18px;
-  line-height: 1.2;              /* 120% */
-  letter-spacing: -0.02em;       /* ~ -2% */
-  color: #0E111A;
-  opacity: .8;
-}
-
-/* правый круг с иконкой (63×63) */
-.about-icon{
-  position: absolute;
-  right: 20px;
-  top: 20px;
-  width: 63px;
-  height: 63px;
-  border-radius: 50%;
-  display: grid;
-  place-items: center;
-  background: #F4F6FB;
-  border: 1px solid #E8EDF5;
-  box-shadow: 0 2px 6px rgba(17,20,26,.08);
-}
-.about-icon svg{
-  width: 28px; height: 28px;
-  fill: #0E111A; opacity: .6;
-}
-
-/* мобилка */
-@media (max-width: 720px){
-  .about{ padding: 48px 0; }
-  .about .h2{ font-size: 42px; margin-bottom: 24px; }
-  .about-item{ border-radius: 22px; padding: 18px 84px 18px 18px; }
-  .about-text h3{ font-size: 22px; }
-  .about-text p{ font-size: 15px; }
-  .about-icon{ width: 56px; height: 56px; }
-}
-/* ABOUT spacing fix */
-.about.section{ padding-top:80px !important; }   /* верхний отступ секции */
-.about .h2{ margin-top:0; margin-bottom:28px; }  /* сам заголовок */
-
-/* Force dark style for that button */
-#cta-participate{
-    background: linear-gradient(180deg,#1f2430,#0f121a) !important;
-    color:#fff !important;
-    border:none !important;
-    box-shadow: 0 14px 28px rgba(15,18,26,.22), 0 4px 8px rgba(15,18,26,.12) !important;
+  .about-icon svg{
+    width: 28px; height: 28px;
+    fill: #0E111A; opacity: .6;
   }
-  #cta-participate:hover{ transform:translateY(-1px); filter:brightness(1.02); }
-  /* === HERO — общий контейнер и фон === */
-.hero{ padding:32px 0 16px; }
-.hero-card{
-  position:relative;
-  overflow:hidden;
-  height:560px;                        /* можно править при необходимости */
-  border-radius:26px;
-  border:1px solid #E6EAF2;
-  box-shadow:0 12px 28px rgba(16,20,31,.12), 0 2px 6px rgba(16,20,31,.06);
-  background:url("assets/hero-desktop.webp") center/cover no-repeat;
-}
-
-/* === Чипбар с иконками (слева-верх) === */
-.hero-badges{
-  position:absolute; left:56px; top:120px;
-  display:flex; gap:14px;
-  padding:12px 18px;
-  border-radius:28px;
-  background:rgba(255,255,255,.65);
-  border:1px solid rgba(0,0,0,.06);
-  box-shadow:0 10px 24px rgba(23,27,41,.10), inset 0 1px 0 rgba(255,255,255,.6);
-  backdrop-filter:blur(8px); -webkit-backdrop-filter:blur(8px);
-}
-.badge{
-  width:42px; height:42px; border-radius:999px;
-  display:grid; place-items:center;
-  font-weight:900; color:#1B1D21;
-  background:#F3F6FB; border:1px solid #E8EDF5;
-  box-shadow:0 2px 6px rgba(17,20,26,.08);
-}
-
-/* === Большая стеклянная «пилюля» с брендом (по центру) === */
-.brand-pill{
-  position:absolute; left:50%; top:50%;
-  transform:translate(-50%,-40%);
-  display:flex; align-items:center; gap:14px;
-  padding:26px 38px;
-  border-radius:56px;
-  background:rgba(255,255,255,.70);
-  border:1px solid rgba(0,0,0,.06);
-  box-shadow:0 20px 50px rgba(23,27,41,.12), inset 0 1px 0 rgba(255,255,255,.7);
-  backdrop-filter:blur(10px); -webkit-backdrop-filter:blur(10px);
-}
-.brand-mark{
-  width:60px; height:60px; border-radius:50%;
-  display:grid; place-items:center;
-  font-family:"YS Geo", system-ui, sans-serif;
-  font-weight:900; font-size:28px; color:#1B1D21;
-  background:#F3F6FB; border:1px solid #E8EDF5;
-  box-shadow:0 2px 6px rgba(17,20,26,.08);
-}
-.brand-mark.up{ transform:translateY(-2px); }
-.brand-name{
-  font-family:"YS Geo", system-ui, sans-serif;
-  font-weight:900;
-  font-size:64px;
-  letter-spacing:-.6px;
-  color:#0E111A;
-}
-
-/* === Чёрный CTA-блок справа (как в макете) === */
-.cta-block{
-  position:absolute; right:68px; top:50%;
-  transform:translateY(16%);
-  display:flex; flex-direction:column; gap:12px;
-  padding:18px 20px 18px 22px;
-  border-radius:24px;
-  background:rgba(255,255,255,.85);
-  border:1px solid rgba(0,0,0,.06);
-  box-shadow:0 18px 40px rgba(23,27,41,.16), inset 0 1px 0 rgba(255,255,255,.7);
-  backdrop-filter:blur(8px);
-}
-.cta-title{
-  font-family:"YS Geo", system-ui, sans-serif;
-  font-weight:800; font-size:18px; color:#0E111A; opacity:.9;
-}
-.cta-button{
-  display:inline-flex; align-items:center; justify-content:center;
-  height:48px; padding:0 22px; border-radius:15px;
-  font-weight:800; color:#fff; text-decoration:none;
-  background:linear-gradient(180deg,#3a3f4a 0%, #1a1d24 100%);      /* ЧЁРНАЯ КНОПКА */
-  border:1px solid rgba(255,255,255,.20);
-  box-shadow:0 18px 32px rgba(0,0,0,.22), 0 6px 10px rgba(0,0,0,.14);
-  transition:transform .18s ease, filter .18s ease;
-}
-.cta-button:hover{ transform:translateY(-1px); filter:brightness(1.05); }
-
-/* === Капсулы: время, дата, город (слева-низ под брендом) === */
-.hero-meta{
-  position:absolute; left:228px; bottom:88px;
-  display:flex; gap:12px;
-}
-.hero-tag{
-  padding:6px 16px;
-  font-family:"YS Text","YS Geo",system-ui,sans-serif;
-  font-size:15px; font-weight:500; line-height:1.4; letter-spacing:-.01em;
-  border-radius:999px;
-  background:rgba(255,255,255,.75);
-  border:1px solid rgba(0,0,0,.08);
-  box-shadow:0 2px 6px rgba(17,20,26,.08), inset 0 1px 0 rgba(255,255,255,.6);
-  color:#0E111A; white-space:nowrap;
-  backdrop-filter:blur(10px); -webkit-backdrop-filter:blur(10px);
-}
-
-/* — адаптив (при желании значения можно поджать) — */
-@media (max-width: 960px){
-  .hero-card{ height:460px; }
-  .brand-name{ font-size:48px; }
-  .brand-mark{ width:52px; height:52px; font-size:24px; }
-  .cta-block{ right:32px; transform:translateY(12%); }
-  .hero-meta{ left:40px; bottom:56px; }
-}
-@media (max-width: 720px){
-  .hero-card{ height:420px; }
-  .brand-name{ font-size:40px; }
-  .brand-mark{ width:46px; height:46px; font-size:22px; }
-  .hero-badges{ left:24px; top:110px; }
-  .cta-block{ right:24px; transform:none; top:auto; bottom:32px; }
-  .hero-meta{ left:24px; bottom:24px; }
-}
-/* === HERO SAFE PATCH (работает с текущей разметкой) === */
-.hero{ padding:32px 0 16px; } /* как было изначально */
-
-.hero-card{
-  position:relative;
-  overflow:hidden;
-  border-radius:26px;
-  height:var(--hero-height);
-  background:url("assets/hero-desktop.webp") center/cover no-repeat;
-  border:1px solid var(--ring);
-  box-shadow:var(--shadow);
-}
-
-/* пилюли (18:00 / 6 октября / Москва) — под большой плашкой слева */
-.hero-meta{
-  position:absolute;
-  left:60px;
-  bottom:88px;          /* под центральной плашкой */
-  display:flex;
-  gap:12px;
-  z-index:2;
-}
-.hero-meta .chip{
-  padding:8px 14px;
-  border-radius:999px;
-  background:#fff;
-  border:1px solid #E8EDF5;
-  box-shadow:0 2px 6px rgba(0,0,0,.08);
-  font-weight:700;
-  font-size:14px;
-}
-
-/* кнопка — справа под «всё в одном ключе» */
-.cta{
-  position:absolute;
-  right:64px;
-  bottom:96px;
-  transform:none;           /* снимаем translate из старых правил */
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  height:48px;
-  padding:0 24px;
-  border-radius:18px;
-  background:#0E111A;
-  color:#fff;
-  font-weight:800;
-  text-decoration:none;
-  border:none;
-  box-shadow:0 14px 28px rgba(15,18,26,.28), 0 2px 4px rgba(15,18,26,.18);
-  z-index:2;
-}
+  
+  /* мобилка */
+  @media (max-width: 720px){
+    .about{ padding: 48px 0; }
+    .about .h2{ font-size: 42px; margin-bottom: 24px; }
+    .about-item{ border-radius: 22px; padding: 18px 84px 18px 18px; }
+    .about-text h3{ font-size: 22px; }
+    .about-text p{ font-size: 15px; }
+    .about-icon{ width: 56px; height: 56px; }
+  }
+  /* ABOUT spacing fix */
+  .about.section{ padding-top:80px !important; }   /* верхний отступ секции */
+  .about .h2{ margin-top:0; margin-bottom:28px; }  /* сам заголовок */
+  
+  /* Force dark style for that button */
+  #cta-participate{
+      background: linear-gradient(180deg,#1f2430,#0f121a) !important;
+      color:#fff !important;
+      border:none !important;
+      box-shadow: 0 14px 28px rgba(15,18,26,.22), 0 4px 8px rgba(15,18,26,.12) !important;
+    }
+    #cta-participate:hover{ transform:translateY(-1px); filter:brightness(1.02); }
+    /* === HERO — общий контейнер и фон === */
+  .hero{ padding:32px 0 16px; }
+  .hero-card{
+    position:relative;
+    overflow:hidden;
+    height:560px;                        /* можно править при необходимости */
+    border-radius:26px;
+    border:1px solid #E6EAF2;
+    box-shadow:0 12px 28px rgba(16,20,31,.12), 0 2px 6px rgba(16,20,31,.06);
+    background:url("assets/hero-desktop.webp") center/cover no-repeat;
+  }
+  
+  /* === Чипбар с иконками (слева-верх) === */
+  .hero-badges{
+    position:absolute; left:56px; top:120px;
+    display:flex; gap:14px;
+    padding:12px 18px;
+    border-radius:28px;
+    background:rgba(255,255,255,.65);
+    border:1px solid rgba(0,0,0,.06);
+    box-shadow:0 10px 24px rgba(23,27,41,.10), inset 0 1px 0 rgba(255,255,255,.6);
+    backdrop-filter:blur(8px); -webkit-backdrop-filter:blur(8px);
+  }
+  .badge{
+    width:42px; height:42px; border-radius:999px;
+    display:grid; place-items:center;
+    font-weight:900; color:#1B1D21;
+    background:#F3F6FB; border:1px solid #E8EDF5;
+    box-shadow:0 2px 6px rgba(17,20,26,.08);
+  }
+  
+  /* === Большая стеклянная «пилюля» с брендом (по центру) === */
+  .brand-pill{
+    position:absolute; left:50%; top:50%;
+    transform:translate(-50%,-40%);
+    display:flex; align-items:center; gap:14px;
+    padding:26px 38px;
+    border-radius:56px;
+    background:rgba(255,255,255,.70);
+    border:1px solid rgba(0,0,0,.06);
+    box-shadow:0 20px 50px rgba(23,27,41,.12), inset 0 1px 0 rgba(255,255,255,.7);
+    backdrop-filter:blur(10px); -webkit-backdrop-filter:blur(10px);
+  }
+  .brand-mark{
+    width:60px; height:60px; border-radius:50%;
+    display:grid; place-items:center;
+    font-family:"YS Geo", system-ui, sans-serif;
+    font-weight:900; font-size:28px; color:#1B1D21;
+    background:#F3F6FB; border:1px solid #E8EDF5;
+    box-shadow:0 2px 6px rgba(17,20,26,.08);
+  }
+  .brand-mark.up{ transform:translateY(-2px); }
+  .brand-name{
+    font-family:"YS Geo", system-ui, sans-serif;
+    font-weight:900;
+    font-size:64px;
+    letter-spacing:-.6px;
+    color:#0E111A;
+  }
+  
+  /* === Чёрный CTA-блок справа (как в макете) === */
+  .cta-block{
+    position:absolute; right:68px; top:50%;
+    transform:translateY(16%);
+    display:flex; flex-direction:column; gap:12px;
+    padding:18px 20px 18px 22px;
+    border-radius:24px;
+    background:rgba(255,255,255,.85);
+    border:1px solid rgba(0,0,0,.06);
+    box-shadow:0 18px 40px rgba(23,27,41,.16), inset 0 1px 0 rgba(255,255,255,.7);
+    backdrop-filter:blur(8px);
+  }
+  .cta-title{
+    font-family:"YS Geo", system-ui, sans-serif;
+    font-weight:800; font-size:18px; color:#0E111A; opacity:.9;
+  }
+  .cta-button{
+    display:inline-flex; align-items:center; justify-content:center;
+    height:48px; padding:0 22px; border-radius:15px;
+    font-weight:800; color:#fff; text-decoration:none;
+    background:linear-gradient(180deg,#3a3f4a 0%, #1a1d24 100%);      /* ЧЁРНАЯ КНОПКА */
+    border:1px solid rgba(255,255,255,.20);
+    box-shadow:0 18px 32px rgba(0,0,0,.22), 0 6px 10px rgba(0,0,0,.14);
+    transition:transform .18s ease, filter .18s ease;
+  }
+  .cta-button:hover{ transform:translateY(-1px); filter:brightness(1.05); }
+  
+  /* === Капсулы: время, дата, город (слева-низ под брендом) === */
+  .hero-meta{
+    position:absolute; left:228px; bottom:88px;
+    display:flex; gap:12px;
+  }
+  .hero-tag{
+    padding:6px 16px;
+    font-family:"YS Text","YS Geo",system-ui,sans-serif;
+    font-size:15px; font-weight:500; line-height:1.4; letter-spacing:-.01em;
+    border-radius:999px;
+    background:rgba(255,255,255,.75);
+    border:1px solid rgba(0,0,0,.08);
+    box-shadow:0 2px 6px rgba(17,20,26,.08), inset 0 1px 0 rgba(255,255,255,.6);
+    color:#0E111A; white-space:nowrap;
+    backdrop-filter:blur(10px); -webkit-backdrop-filter:blur(10px);
+  }
+  
+  /* — адаптив (при желании значения можно поджать) — */
+  @media (max-width: 960px){
+    .hero-card{ height:460px; }
+    .brand-name{ font-size:48px; }
+    .brand-mark{ width:52px; height:52px; font-size:24px; }
+    .cta-block{ right:32px; transform:translateY(12%); }
+    .hero-meta{ left:40px; bottom:56px; }
+  }
+  @media (max-width: 720px){
+    .hero-card{ height:420px; }
+    .brand-name{ font-size:40px; }
+    .brand-mark{ width:46px; height:46px; font-size:22px; }
+    .hero-badges{ left:24px; top:110px; }
+    .cta-block{ right:24px; transform:none; top:auto; bottom:32px; }
+    .hero-meta{ left:24px; bottom:24px; }
+  }
+  /* === HERO (шапка) === */
+  .hero{ padding:32px 0 16px; }
+  
+  .hero-card{
+    position:relative; overflow:hidden; height:560px; border-radius:26px;
+    background:url("assets/hero-desktop.webp") center/cover no-repeat;
+    border:1px solid var(--ring); box-shadow:var(--shadow);
+  }
+  
+  /* чипсы 18:00 / 6 октября / Москва */
+  .hero-meta{
+    position:absolute; left:220px; bottom:86px;
+    display:flex; gap:8px; z-index:2;
+  }
+  .hero-meta .chip{
+    display:inline-flex; align-items:center; height:28px; padding:0 10px;
+    border-radius:999px; font:600 13px/1 "YS Geo", system-ui, sans-serif;
+    color:#111; background:rgba(255,255,255,.85);
+    border:1px solid rgba(0,0,0,.06);
+    box-shadow:0 2px 6px rgba(0,0,0,.10), inset 0 1px 0 rgba(255,255,255,.75);
+  }
+  
+  /* чёрная кнопка справа */
+  .hero .cta{
+    position:absolute; right:80px; bottom:86px;
+    display:inline-flex; align-items:center; justify-content:center;
+    height:48px; padding:0 24px; border-radius:999px;
+    font-weight:800; color:#fff; text-decoration:none;
+    background:linear-gradient(180deg,#1f2430,#0f121a);
+    border:1px solid rgba(255,255,255,.20);
+    box-shadow:0 18px 32px rgba(0,0,0,.22), 0 6px 10px rgba(0,0,0,.14);
+    transition:transform .18s ease, filter .18s ease;
+  }
+  .hero .cta:hover{ transform:translateY(-1px); filter:brightness(1.03); }
