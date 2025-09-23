@@ -1078,37 +1078,54 @@ section{
   .cta-block{ right:24px; transform:none; top:auto; bottom:32px; }
   .hero-meta{ left:24px; bottom:24px; }
 }
-/* === HERO (шапка) === */
+/* === HERO — позиционирование в точку (как на визуале) === */
 .hero{ padding:32px 0 16px; }
-
 .hero-card{
   position:relative; overflow:hidden; height:560px; border-radius:26px;
   background:url("assets/hero-desktop.webp") center/cover no-repeat;
   border:1px solid var(--ring); box-shadow:var(--shadow);
 }
 
-/* чипсы 18:00 / 6 октября / Москва */
-.hero-meta{
-  position:absolute; left:220px; bottom:86px;
-  display:flex; gap:8px; z-index:2;
-}
-.hero-meta .chip{
-  display:inline-flex; align-items:center; height:28px; padding:0 10px;
-  border-radius:999px; font:600 13px/1 "YS Geo", system-ui, sans-serif;
-  color:#111; background:rgba(255,255,255,.85);
-  border:1px solid rgba(0,0,0,.06);
-  box-shadow:0 2px 6px rgba(0,0,0,.10), inset 0 1px 0 rgba(255,255,255,.75);
-}
-
-/* чёрная кнопка справа */
+/* чёрная CTA справа */
 .hero .cta{
-  position:absolute; right:80px; bottom:86px;
+  position:absolute; right:96px; bottom:72px;               /* точнее по макету */
   display:inline-flex; align-items:center; justify-content:center;
-  height:48px; padding:0 24px; border-radius:999px;
-  font-weight:800; color:#fff; text-decoration:none;
+  height:48px; padding:0 28px; border-radius:999px;
+  font:800 16px/1 "YS Geo", system-ui, sans-serif;
+  color:#fff; text-decoration:none;
   background:linear-gradient(180deg,#1f2430,#0f121a);
   border:1px solid rgba(255,255,255,.20);
   box-shadow:0 18px 32px rgba(0,0,0,.22), 0 6px 10px rgba(0,0,0,.14);
   transition:transform .18s ease, filter .18s ease;
 }
 .hero .cta:hover{ transform:translateY(-1px); filter:brightness(1.03); }
+
+/* чипсы 18:00 / 6 октября / Москва — слева снизу */
+.hero-meta{
+  position:absolute; left:288px; bottom:72px;               /* точнее по макету */
+  display:flex; gap:10px; z-index:2;
+}
+.hero-meta .chip{
+  display:inline-flex; align-items:center; height:28px; padding:0 12px;
+  border-radius:999px;
+  font:600 13px/1 "YS Geo", system-ui, sans-serif; color:#111;
+  background:rgba(255,255,255,.88);
+  border:1px solid rgba(0,0,0,.06);
+  box-shadow:0 2px 6px rgba(0,0,0,.10), inset 0 1px 0 rgba(255,255,255,.75);
+}
+
+/* адаптив: чуть ближе к центру на планшете/мобиле */
+@media (max-width: 1200px){
+  .hero .cta{ right:64px; bottom:64px; }
+  .hero-meta{ left:240px; bottom:64px; }
+}
+@media (max-width: 960px){
+  .hero-card{ height:420px; }
+  .hero .cta{ right:48px; bottom:56px; }
+  .hero-meta{ left:180px; bottom:56px; }
+}
+@media (max-width: 720px){
+  .hero-card{ height:360px; }
+  .hero .cta{ right:50%; transform:translateX(50%); bottom:48px; }
+  .hero-meta{ left:50%; transform:translateX(-50%); bottom:92px; }
+}
