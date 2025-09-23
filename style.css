@@ -863,4 +863,86 @@ section{
     background: #F4F6FB;
     border: 1px solid var(--ring);
   }
-  
+  /* === ABOUT — как в визуале (1 колонка, стеклянные плашки) === */
+.about { padding: 80px 0; }
+.about .container { max-width: 1280px; padding: 0 20px; }
+
+.about .h2 {                /* заголовок блока */
+  margin: 0 0 28px;
+  text-align: center;
+  font-size: clamp(48px, 7vw, 80px);
+  line-height: 1.05;
+  font-weight: 900;
+  letter-spacing: -0.6px;
+}
+
+/* список: одна колонка, маленький вертикальный шаг */
+.about-list{
+  display: grid;
+  grid-template-columns: 1fr;   /* ← вместо 2 колонок */
+  gap: 12px;
+}
+
+/* карточка */
+.about-item{
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 20px 96px 20px 24px;  /* справа место под круг 63px */
+  border-radius: 30px;
+  background: linear-gradient(180deg, rgba(255,255,255,.70), rgba(255,255,255,.30));
+  border: 1px solid rgba(0,0,0,.08);
+  box-shadow: 0 14px 32px rgba(0,0,0,.08), inset 0 1px 0 rgba(255,255,255,.40);
+}
+
+/* текст внутри карточки */
+.about-text h3{
+  margin: 0 0 6px;
+  font-family: "YS Geo", system-ui, sans-serif;
+  font-weight: 500;              /* Medium */
+  font-size: 32px;
+  line-height: 1.2;              /* 120% */
+  letter-spacing: -0.035em;      /* ~ -3.5% */
+  color: #0E111A;
+}
+.about-text p{
+  margin: 0;
+  font-family: "YS Geo", system-ui, sans-serif;
+  font-weight: 400;              /* Regular */
+  font-size: 18px;
+  line-height: 1.2;              /* 120% */
+  letter-spacing: -0.02em;       /* ~ -2% */
+  color: #0E111A;
+  opacity: .8;
+}
+
+/* правый круг с иконкой (63×63) */
+.about-icon{
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  width: 63px;
+  height: 63px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: #F4F6FB;
+  border: 1px solid #E8EDF5;
+  box-shadow: 0 2px 6px rgba(17,20,26,.08);
+}
+.about-icon svg{
+  width: 28px; height: 28px;
+  fill: #0E111A; opacity: .6;
+}
+
+/* мобилка */
+@media (max-width: 720px){
+  .about{ padding: 48px 0; }
+  .about .h2{ font-size: 42px; margin-bottom: 24px; }
+  .about-item{ border-radius: 22px; padding: 18px 84px 18px 18px; }
+  .about-text h3{ font-size: 22px; }
+  .about-text p{ font-size: 15px; }
+  .about-icon{ width: 56px; height: 56px; }
+}
