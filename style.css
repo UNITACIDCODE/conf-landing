@@ -1078,79 +1078,55 @@ section{
   .cta-block{ right:24px; transform:none; top:auto; bottom:32px; }
   .hero-meta{ left:24px; bottom:24px; }
 }
-/* HERO background */
-.hero{
-    position:relative;
-    padding:80px 0;
-    background:url("assets/hero-desktop.webp") center/cover no-repeat;
-    border-radius:26px; overflow:hidden;
-  }
-  
-  /* layout поверх картинки */
-  .hero-inner{
-    display:grid;
-    grid-template-columns:auto 1fr auto;
-    grid-template-rows:auto auto;
-    align-items:center;
-    gap:24px;
-  }
-  
-  /* левый «чип» с иконками */
-  .hero-logos{
-    grid-column:1; grid-row:1;
-    display:flex; gap:12px;
-    padding:12px 18px; border-radius:40px;
-    background:rgba(255,255,255,.65);
-    border:1px solid rgba(0,0,0,.08);
-    box-shadow:0 8px 20px rgba(0,0,0,.12) inset, 0 6px 18px rgba(0,0,0,.08);
-  }
-  .hero-logos img{ width:36px; height:36px; }
-  
-  /* центр: логотип+заголовок */
-  .hero-title{
-    grid-column:2; grid-row:1;
-    display:flex; align-items:center; gap:14px;
-    padding:18px 28px; border-radius:40px;
-    background:rgba(255,255,255,.72);
-    border:1px solid rgba(0,0,0,.06);
-    box-shadow:0 10px 28px rgba(0,0,0,.12) inset, 0 8px 24px rgba(0,0,0,.10);
-  }
-  .hero-title .ya{ width:56px; height:56px; }
-  .hero-title h1{
-    margin:0; font-family:"YS Geo",system-ui,sans-serif;
-    font-weight:800; font-size:64px; letter-spacing:-.02em; color:#0E111A;
-  }
-  
-  /* пилюли под левым блоком + заголовком */
-  .hero-tags{
-    grid-column:1 / span 2; grid-row:2;
-    display:flex; gap:12px; margin-top:6px;
-  }
-  .tag{
-    padding:8px 14px; border-radius:999px;
-    background:#fff; border:1px solid #E8EDF5;
-    box-shadow:0 2px 6px rgba(0,0,0,.08);
-    font-weight:700; font-size:14px;
-  }
-  
-  /* правый блок с подписью и кнопкой */
-  .hero-cta{
-    grid-column:3; grid-row:1 / span 2;
-    align-self:center; text-align:center;
-    padding:18px 22px; border-radius:26px;
-    background:rgba(255,255,255,.72);
-    border:1px solid rgba(0,0,0,.06);
-    box-shadow:0 8px 24px rgba(0,0,0,.10);
-  }
-  .hero-cta .cta-title{
-    margin:0 0 8px; font-weight:800; color:#0E111A;
-  }
-  
-  /* чёрная кнопка как в макете */
-  .btn.btn-black{
-    display:inline-flex; align-items:center; justify-content:center;
-    height:48px; padding:0 24px; border-radius:18px;
-    background:#0E111A; color:#fff; font-weight:800; text-decoration:none;
-    box-shadow:0 14px 28px rgba(15,18,26,.28), 0 2px 4px rgba(15,18,26,.18);
-  }
-  
+/* === HERO SAFE PATCH (работает с текущей разметкой) === */
+.hero{ padding:32px 0 16px; } /* как было изначально */
+
+.hero-card{
+  position:relative;
+  overflow:hidden;
+  border-radius:26px;
+  height:var(--hero-height);
+  background:url("assets/hero-desktop.webp") center/cover no-repeat;
+  border:1px solid var(--ring);
+  box-shadow:var(--shadow);
+}
+
+/* пилюли (18:00 / 6 октября / Москва) — под большой плашкой слева */
+.hero-meta{
+  position:absolute;
+  left:60px;
+  bottom:88px;          /* под центральной плашкой */
+  display:flex;
+  gap:12px;
+  z-index:2;
+}
+.hero-meta .chip{
+  padding:8px 14px;
+  border-radius:999px;
+  background:#fff;
+  border:1px solid #E8EDF5;
+  box-shadow:0 2px 6px rgba(0,0,0,.08);
+  font-weight:700;
+  font-size:14px;
+}
+
+/* кнопка — справа под «всё в одном ключе» */
+.cta{
+  position:absolute;
+  right:64px;
+  bottom:96px;
+  transform:none;           /* снимаем translate из старых правил */
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  height:48px;
+  padding:0 24px;
+  border-radius:18px;
+  background:#0E111A;
+  color:#fff;
+  font-weight:800;
+  text-decoration:none;
+  border:none;
+  box-shadow:0 14px 28px rgba(15,18,26,.28), 0 2px 4px rgba(15,18,26,.18);
+  z-index:2;
+}
